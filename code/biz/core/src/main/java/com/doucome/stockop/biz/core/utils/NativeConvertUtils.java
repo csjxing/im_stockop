@@ -1,15 +1,15 @@
 package com.doucome.stockop.biz.core.utils;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ReflectionUtils;
 
-import com.doucome.stockop.biz.core.annotation.CPlusType;
+import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.NativeStruct;
+import com.doucome.stockop.biz.core.model.cpp.CType;
 
 /**
  * 本机对象和C++网络对象转换工具
@@ -27,7 +27,7 @@ public class NativeConvertUtils {
 	 * @param clz
 	 * @return
 	 */
-	public static Object nativeBuff2Object(byte[] natBuff , Class clz) {
+	public static Object nativeBuff2Object(byte[] natBuff , Class<?> clz) {
 		byte[] buff = new byte[1024] ;//临时缓存
 		try {
 			Object o = clz.newInstance() ;
@@ -35,16 +35,24 @@ public class NativeConvertUtils {
 			int pos = 0 ;
 			if(ArrayUtils.isNotEmpty(fields)) {
 				for(Field field : fields) {
-					//查找annotation
-					//ByteUtils.setDefault(buff, 0) ;
-					CPlusType cplusType = field.getAnnotation(CPlusType.class) ;
-					if(cplusType == null) {
+					Class<?> c = field.getType() ;
+					boolean isCtype = ReflectionExUtils.isImplInterface(c, CType.class) ;
+					if(!isCtype) {
 						continue ;
 					}
-					int byteLen = getByteLength(cplusType) ;
+					
+					int byteLen = getByteLength(field,o) ;
+					ReflectionUtils.makeAccessible(field) ;
+					CType fieldVal = (CType)ReflectionUtils.getField(field, o) ;
+					if(fieldVal == null) {
+						ReflectionUtils.setField(field, o, c.newInstance()) ;
+						fieldVal = (CType)ReflectionUtils.getField(field, o) ;
+					}
 					
 					System.arraycopy(natBuff, pos , buff, 0, byteLen) ;
-					setNativeBuff2FieldVal(field,o,buff,cplusType) ;
+					fieldVal.readNativeBuff(buff) ;
+					//reset buff 
+					ByteUtils.setDefault(buff, (byte)0 , byteLen) ;
 					pos += byteLen ;
 				}
 			}
@@ -69,70 +77,32 @@ public class NativeConvertUtils {
 			byte[] buff = new byte[nativeStructLen] ;
 			int pos = 0 ;
 			for(Field field : fields) {
-				CPlusType cplusType = field.getAnnotation(CPlusType.class) ;
-				if(cplusType == null) {
+				Class<?> c = field.getType() ;
+				boolean isCtype = ReflectionExUtils.isImplInterface(c, CType.class) ;
+				if(!isCtype) {
 					continue ;
 				}
-				int fieldLen = getByteLength(cplusType) ;
+				int len = getByteLength(field, natStruct) ;
 				try {
-					byte[] srcBuff = toNativeBuff(field , natStruct) ;
-					int arraylen = srcBuff.length ;
-					System.arraycopy(srcBuff, 0, buff, pos, arraylen) ;
+					ReflectionUtils.makeAccessible(field) ;
+					CType ctype = (CType)ReflectionUtils.getField(field, natStruct) ;
+					byte[] fieldBuff = toNativeBuff(ctype) ;
+					System.arraycopy(fieldBuff, 0, buff, pos, ByteUtils.getLength(fieldBuff, len) ) ;
 				} catch (Exception e) {
 					log.error(e.getMessage() , e) ;
 				}
-				pos += fieldLen ;
+				pos += len ;
 			}
 			return buff ;
 		}
 		return null ;
 	}
 	
-	private static void setNativeBuff2FieldVal(Field field, Object o , byte[] buff , CPlusType cplusType) {
-		Type type = field.getType() ;
-		int byteLen = getByteLength(cplusType) ;
-		ReflectionUtils.makeAccessible(field) ;
-		if(type == int.class) {
-			int val = FormatTransfer.lBytesToInt(buff) ;
-			ReflectionUtils.setField(field, o, val) ;
-		} else if(type == float.class) {
-			float val = FormatTransfer.lBytesToFloat(buff) ;
-			ReflectionUtils.setField(field, o, val) ;
-		} else if(type == short.class) {
-			short val = FormatTransfer.lBytesToShort(buff) ;
-			ReflectionUtils.setField(field, o, val) ;
-		} else if(type == byte.class) {
-			byte val = buff[0] ;
-			ReflectionUtils.setField(field, o, val) ;
-		} else if(type == String.class) {
-			String val = FormatTransfer.lbytesToString(buff) ;
-			ReflectionUtils.setField(field, o, val) ;
-		} else {
-			throw new IllegalStateException("Unknown field type : " + field + " to Object : " + o) ;
+	private static byte[] toNativeBuff(CType ctype){
+		if(ctype == null) {
+			return new byte[0] ;
 		}
-	}
-	
-	private static byte[] toNativeBuff(Field field , NativeStruct natStruct) throws IllegalArgumentException, IllegalAccessException {
-		Type type = field.getType() ;
-		ReflectionUtils.makeAccessible(field);
-		Object o = ReflectionUtils.getField(field, natStruct) ;
-		if(type == int.class) {
-			int i = (Integer)o ;
-			return FormatTransfer.toLH(i) ;
-		} else if(type == float.class) {
-			float i = (Float)o ;
-			return FormatTransfer.toLH(i) ;
-		} else if(type == short.class) {
-			short i = (Short)o ;
-			return FormatTransfer.toLH(i) ;
-		} else if(type == byte.class) {
-			byte i = (Byte)o ;
-			return new byte[]{i} ;
-		} else if(type == String.class) {
-			String i = (String) o ;
-			return FormatTransfer.stringToBytes(i) ;
-		}
-		throw new IllegalStateException("Unknown field type : " + field + " in class : " + natStruct) ;
+		return ctype.getNativeBuff() ;
 	}
 	
 	private static int getNativeStructLen(NativeStruct natStruct) {
@@ -140,28 +110,38 @@ public class NativeConvertUtils {
 		Field[] fields = natStruct.getClass().getDeclaredFields() ;
 		if(ArrayUtils.isNotEmpty(fields)) {
 			for(Field field : fields) {
-				//查找annotation
-				CPlusType cplusType = field.getAnnotation(CPlusType.class) ;
-				if(cplusType != null) {
-					int fieldLen = getByteLength(cplusType) ;
-					if(fieldLen > 0) {
-						len += fieldLen ;
-					}
-				}
+				len += getByteLength(field , natStruct) ;
 			}
 		}
 		
 		return len ;
 	}
 	
-	private static int getByteLength(CPlusType type) {
-		if(type == null) {
+	/**
+	 * 
+	 * @param field
+	 * @param o
+	 * @return
+	 */
+	private static int getByteLength(Field field , Object o) {
+		Class<?> c = field.getType() ;
+		boolean isCtype = ReflectionExUtils.isImplInterface(c, CType.class) ;
+		if(!isCtype) {
 			return 0 ;
 		}
-		int fieldLen = type.value().getByteLen() ;
-		if(fieldLen == -1) {
-			fieldLen = type.length() ;
+		CppByteLen cppByteLen = c.getAnnotation(CppByteLen.class) ;
+		if(cppByteLen == null) {
+			throw new IllegalArgumentException("CType must declare Annotation[CppByteLen]") ;
 		}
-		return fieldLen ;
+		int length = cppByteLen.value() ;
+		if(length < 0) {
+			//从field读取
+			cppByteLen = field.getAnnotation(CppByteLen.class) ;
+			if(cppByteLen == null) {
+				throw new IllegalArgumentException("Class[" + c + "] must declare Annotation[CppByteLen] in field") ;
+			}
+			length = cppByteLen.value() ;
+		}
+		return length ;
 	}
 }

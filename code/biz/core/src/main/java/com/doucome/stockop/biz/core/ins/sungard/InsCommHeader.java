@@ -1,128 +1,117 @@
 package com.doucome.stockop.biz.core.ins.sungard;
 
-import com.doucome.stockop.biz.core.annotation.CPlusType;
-import com.doucome.stockop.biz.core.annotation.Type;
+import com.doucome.stockop.biz.core.model.NativeStruct;
+import com.doucome.stockop.biz.core.model.cpp.Cbyte;
+import com.doucome.stockop.biz.core.model.cpp.Cint;
+import com.doucome.stockop.biz.core.model.cpp.Clong;
+import com.doucome.stockop.biz.core.model.cpp.Cword;
 
 /**
  * 金仕达协议指令头
  * @author langben 2013-6-26
  *
  */
-public class InsCommHeader {
-	
-	public InsCommHeader(byte[] head) {
-		
-	}
+@SuppressWarnings("serial")
+public class InsCommHeader extends NativeStruct {
 
-	@CPlusType(Type.BYTE)
-	private byte cmd ;
+	private Cbyte cmd ;
 	
-	@CPlusType(Type.BYTE)
-	private byte flag ;
+	private Cbyte flag ;
 	
-	@CPlusType(Type.INT)
-	private int error ;
+	private Cint error ;
 	
-	@CPlusType(Type.BYTE)
-	private byte resultCode ;
+	private Cbyte resultCode ;
 	
-	@CPlusType(Type.BYTE)
-	private byte encryptMethod ;
+	private Cbyte encryptMethod ;
 	
-	@CPlusType(Type.BYTE)
-	private byte compressMethod ;
+	private Cbyte compressMethod ;
 	
-	@CPlusType(Type.WORD)
-	private int orgLen ;
+	private Cword orgLen ;
 	
-	@CPlusType(Type.WORD)
-	private int len ;
+	private Cword len ;
 	
-	@CPlusType(Type.LONG)
-	private int userdata ;
+	private Clong userdata ;
 
-	@CPlusType(Type.WORD)
-	private int crc ;
+	private Cword crc ;
 
-	public byte getCmd() {
+	public Cbyte getCmd() {
 		return cmd;
 	}
 
-	public void setCmd(byte cmd) {
+	public void setCmd(Cbyte cmd) {
 		this.cmd = cmd;
 	}
 
-	public byte getFlag() {
+	public Cbyte getFlag() {
 		return flag;
 	}
 
-	public void setFlag(byte flag) {
+	public void setFlag(Cbyte flag) {
 		this.flag = flag;
 	}
 
-	public int getError() {
+	public Cint getError() {
 		return error;
 	}
 
-	public void setError(int error) {
+	public void setError(Cint error) {
 		this.error = error;
 	}
 
-	public byte getResultCode() {
+	public Cbyte getResultCode() {
 		return resultCode;
 	}
 
-	public void setResultCode(byte resultCode) {
+	public void setResultCode(Cbyte resultCode) {
 		this.resultCode = resultCode;
 	}
 
-	public byte getEncryptMethod() {
+	public Cbyte getEncryptMethod() {
 		return encryptMethod;
 	}
 
-	public void setEncryptMethod(byte encryptMethod) {
+	public void setEncryptMethod(Cbyte encryptMethod) {
 		this.encryptMethod = encryptMethod;
 	}
 
-	public byte getCompressMethod() {
+	public Cbyte getCompressMethod() {
 		return compressMethod;
 	}
 
-	public void setCompressMethod(byte compressMethod) {
+	public void setCompressMethod(Cbyte compressMethod) {
 		this.compressMethod = compressMethod;
 	}
 
-	public int getOrgLen() {
+	public Cword getOrgLen() {
 		return orgLen;
 	}
 
-	public void setOrgLen(int orgLen) {
+	public void setOrgLen(Cword orgLen) {
 		this.orgLen = orgLen;
 	}
 
-	public int getLen() {
+	public Cword getLen() {
 		return len;
 	}
 
-	public void setLen(int len) {
+	public void setLen(Cword len) {
 		this.len = len;
 	}
 
-	public int getUserdata() {
+	public Clong getUserdata() {
 		return userdata;
 	}
 
-	public void setUserdata(int userdata) {
+	public void setUserdata(Clong userdata) {
 		this.userdata = userdata;
 	}
 
-	public int getCrc() {
+	public Cword getCrc() {
 		return crc;
 	}
 
-	public void setCrc(int crc) {
+	public void setCrc(Cword crc) {
 		this.crc = crc;
 	}
-	
-	
+
 }

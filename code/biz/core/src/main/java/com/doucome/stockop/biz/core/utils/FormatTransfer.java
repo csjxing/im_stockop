@@ -283,9 +283,19 @@ public class FormatTransfer {
 	 * 将 byte数组中的元素倒序排列
 	 */
 	public static byte[] bytesReverseOrder(byte[] b) {
-		int length = b.length;
+		return bytesReverseOrder(b , -1) ;
+	}
+	
+	public static byte[] bytesReverseOrder(byte[] b , int length) {
+		if(length == -1) {
+			length = b.length ;
+		}
+		int loop = length ;
+		if(loop > b.length){
+			loop = b.length ;
+		}
 		byte[] result = new byte[length];
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < loop; i++) {
 			result[length - i - 1] = b[i];
 		}
 		return result;
