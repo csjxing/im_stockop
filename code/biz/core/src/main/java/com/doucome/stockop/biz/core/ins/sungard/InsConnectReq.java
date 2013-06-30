@@ -11,7 +11,7 @@ import com.doucome.stockop.biz.core.model.cpp.Cstring;
  *
  */
 @SuppressWarnings("serial")
-public class InsReqConnect extends NativeStruct {
+public class InsConnectReq extends NativeStruct {
 
 	private Cbyte encryptMethod ;
 	

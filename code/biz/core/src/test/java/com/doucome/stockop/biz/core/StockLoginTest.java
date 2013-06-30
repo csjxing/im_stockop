@@ -2,16 +2,18 @@ package com.doucome.stockop.biz.core;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 import com.doucome.stockop.biz.core.ins.sungard.InsConnectReq;
+import com.doucome.stockop.biz.core.ins.sungard.InsConnectResp;
 import com.doucome.stockop.biz.core.model.cpp.Cbyte;
 import com.doucome.stockop.biz.core.model.cpp.Cstring;
 import com.doucome.stockop.biz.core.utils.NativeConvertUtils;
 
-public class SendConnectReqTest {
+public class StockLoginTest {
 
-	public static void main(String[] args) throws IOException {
-		Socket sock = new Socket("127.0.0.1", 5050);
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		Socket sock = new Socket("58.246.146.130", 9001);
 		
 		InsConnectReq reqConnect = new InsConnectReq() ;
 		reqConnect.setEncryptMethod(new Cbyte((short)12)) ;
@@ -32,11 +34,10 @@ public class SendConnectReqTest {
 		
 		sock.getOutputStream().write(natBuff);
 		
-		System.out.println("");
-		byte[] buff = new byte[1024] ;
+		byte[] buff = new byte[2048] ;
 		sock.getInputStream().read(buff);
 		
-		InsConnectReq connectResp = (InsConnectReq)NativeConvertUtils.nativeBuff2Object(buff, InsConnectReq.class) ;
+		InsConnectResp connectResp = (InsConnectResp)NativeConvertUtils.nativeBuff2Object(buff, InsConnectResp.class) ;
 		System.out.println("recv : " + connectResp);
 		sock.close();
 	}
