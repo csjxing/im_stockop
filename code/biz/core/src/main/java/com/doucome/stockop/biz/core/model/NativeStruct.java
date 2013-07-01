@@ -1,4 +1,4 @@
-﻿package com.doucome.stockop.biz.core.model;
+package com.doucome.stockop.biz.core.model;
 
 import com.doucome.stockop.biz.core.utils.NativeConvertUtils;
 

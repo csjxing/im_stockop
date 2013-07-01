@@ -16,7 +16,7 @@ public class InsConnectReq extends NativeStruct {
 	private Cbyte encryptMethod ;
 	
 	private Cbyte compressMethod ;
-	
+	 
 	@CppByteLen(30)
 	private Cstring sAppName ;
 	

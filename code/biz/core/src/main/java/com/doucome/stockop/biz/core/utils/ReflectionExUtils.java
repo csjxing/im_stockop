@@ -1,4 +1,4 @@
-﻿package com.doucome.stockop.biz.core.utils;
+package com.doucome.stockop.biz.core.utils;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;

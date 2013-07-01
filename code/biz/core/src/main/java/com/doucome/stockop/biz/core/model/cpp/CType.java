@@ -1,7 +1,7 @@
-﻿package com.doucome.stockop.biz.core.model.cpp;
+package com.doucome.stockop.biz.core.model.cpp;
 
 public interface CType {
-	
+	 
 	/**
 	 * 4字节对齐
 	 */

@@ -1,4 +1,4 @@
-﻿package com.doucome.stockop.biz.core.utils;
+package com.doucome.stockop.biz.core.utils;
 
 /**
  * 字节顺序工具，用于处理java和c兼容

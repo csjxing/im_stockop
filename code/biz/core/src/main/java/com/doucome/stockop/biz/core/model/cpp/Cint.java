@@ -1,4 +1,4 @@
-﻿package com.doucome.stockop.biz.core.model.cpp;
+package com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
