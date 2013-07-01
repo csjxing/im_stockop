@@ -1,5 +1,7 @@
 package com.doucome.stockop.biz.core.utils;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * 字节顺序工具，用于处理java和c兼容
  * 
@@ -7,6 +9,9 @@ package com.doucome.stockop.biz.core.utils;
  * 
  */
 public class FormatTransfer {
+	
+	//统一编码
+	private static final String CHARSET = "UTF8";
 
 	/**
 	 * 将 int转为低字节在前，高字节在后的byte数组
@@ -99,7 +104,11 @@ public class FormatTransfer {
 		while (s.getBytes().length < length) {
 			s += " ";
 		}
-		return s.getBytes();
+		try {
+			return s.getBytes(CHARSET);
+		} catch (UnsupportedEncodingException e) {
+			return null;
+		}
 	}
 
 	/**
@@ -110,12 +119,20 @@ public class FormatTransfer {
 	 * @return String
 	 */
 	public static String bytesToString(byte[] b) {
-		StringBuffer result = new StringBuffer("");
-		int length = b.length;
-		for (int i = 0; i < length; i++) {
-			result.append((char) (b[i] & 0xff));
+		int index = 0;
+		while(index < b.length) {
+			if(b[index] == 0) {
+				break;
+			}
+			index++;
 		}
-		return result.toString();
+		byte[] temp = new byte[index];
+		System.arraycopy(b, 0, temp, 0, index);
+		try {
+			return new String(temp,CHARSET);
+		} catch (UnsupportedEncodingException e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -131,7 +148,11 @@ public class FormatTransfer {
 		}
 		byte[] temp = new byte[index];
 		System.arraycopy(b, 0, temp, 0, index);
-		return new String(temp);
+		try {
+			return new String(temp,CHARSET);
+		} catch (UnsupportedEncodingException e) {
+			return null;
+		}
 	}
 
 	/**
@@ -148,7 +169,11 @@ public class FormatTransfer {
 	 * @return byte[]
 	 */
 	public static byte[] stringToBytes(String s) {
-		return s.getBytes();
+		try {
+			return s.getBytes(CHARSET);
+		} catch (UnsupportedEncodingException e) {
+			return null;
+		}
 	}
 
 	/**
