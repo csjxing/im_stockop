@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.utils;
+﻿package com.doucome.stockop.biz.core.utils;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -14,7 +14,7 @@ import com.doucome.stockop.biz.core.model.cpp.Cstring;
 public class ReflectionExUtils {
 
 	/**
-	 * �Ƿ�ʵ���˽ӿ�
+	 * 是否实现了接口
 	 * @param clz
 	 * @param inter
 	 * @return

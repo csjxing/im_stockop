@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.model.cpp;
+ï»¿package com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
@@ -21,7 +21,7 @@ public class Clong extends AbstractModel implements CType {
 	}
 
 	/**
-	 * c++ int ºÍ long ¶¼ÊÇ4×Ö½Ú£¬ËùÒÔÓÃint±íÊ¾
+	 * c++ int å’Œ long éƒ½æ˜¯4å­—èŠ‚ï¼Œæ‰€ä»¥ç”¨intè¡¨ç¤º
 	 */
 	private int value ;
 	

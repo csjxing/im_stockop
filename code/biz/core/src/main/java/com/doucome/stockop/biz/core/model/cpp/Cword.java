@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.model.cpp;
+ï»¿package com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
@@ -40,7 +40,7 @@ public class Cword extends AbstractModel implements CType {
 
 	@Override
 	public void readNativeBuff(byte[] b) {
-		//wordÁ½Î»£¬intÊÇËÄÎ»
+		//wordä¸¤ä½ï¼Œintæ˜¯å››ä½
 		byte[] bb = FormatTransfer.bytesReverseOrder(b,4) ;
 		value = FormatTransfer.hBytesToInt(bb) ;
 		_checkValue();

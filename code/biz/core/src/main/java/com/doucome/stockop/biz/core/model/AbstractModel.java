@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.model;
+﻿package com.doucome.stockop.biz.core.model;
 
 import java.io.Serializable;
 

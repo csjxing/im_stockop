@@ -1,11 +1,11 @@
-package com.doucome.stockop.biz.core.model.cpp;
+锘縫ackage com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
 import com.doucome.stockop.biz.core.utils.FormatTransfer;
 
 /**
- * C++ char[] 封装，用于表示字符串
+ * C++ char[] 灏佽锛岀敤浜庤〃绀哄瓧绗︿覆
  * @author langben 2013-6-28
  *
  */

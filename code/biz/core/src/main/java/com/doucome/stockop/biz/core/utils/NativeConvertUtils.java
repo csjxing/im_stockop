@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.utils;
+ï»¿package com.doucome.stockop.biz.core.utils;
 
 import java.lang.reflect.Field;
 
@@ -12,7 +12,7 @@ import com.doucome.stockop.biz.core.model.NativeStruct;
 import com.doucome.stockop.biz.core.model.cpp.CType;
 
 /**
- * ±¾»ú¶ÔÏóºÍC++ÍøÂç¶ÔÏó×ª»»¹¤¾ß
+ * æœ¬æœºå¯¹è±¡å’ŒC++ç½‘ç»œå¯¹è±¡è½¬æ¢å·¥å…·
  * @author langben 2013-6-27
  *
  */
@@ -21,14 +21,14 @@ public class NativeConvertUtils {
 	private static final Log log = LogFactory.getLog(NativeConvertUtils.class) ;
 
 	/**
-	 * ´ÓÍøÂç×Ö½ÚĞòµÄ½á¹¹Ìå×ª»»³É±¾»ú¶ÔÏó
+	 * ä»ç½‘ç»œå­—èŠ‚åºçš„ç»“æ„ä½“è½¬æ¢æˆæœ¬æœºå¯¹è±¡
 	 * @param b
 	 * @param byteLen
 	 * @param clz
 	 * @return
 	 */
 	public static Object nativeBuff2Object(byte[] natBuff , Class<?> clz) {
-		byte[] buff = new byte[1024] ;//ÁÙÊ±»º´æ
+		byte[] buff = new byte[1024] ;//ä¸´æ—¶ç¼“å­˜
 		try {
 			Object o = clz.newInstance() ;
 			Field[] fields = clz.getDeclaredFields() ;
@@ -66,7 +66,7 @@ public class NativeConvertUtils {
 	}
 	
 	/**
-	 * ±¾»ú¶ÔÏó×ª»»³ÉÍøÂç×Ö½ÚĞòµÄbyteÊı×é
+	 * æœ¬æœºå¯¹è±¡è½¬æ¢æˆç½‘ç»œå­—èŠ‚åºçš„byteæ•°ç»„
 	 * @param natStruct
 	 * @return
 	 */
@@ -135,7 +135,7 @@ public class NativeConvertUtils {
 		}
 		int length = cppByteLen.value() ;
 		if(length < 0) {
-			//´Ófield¶ÁÈ¡
+			//ä»fieldè¯»å–
 			cppByteLen = field.getAnnotation(CppByteLen.class) ;
 			if(cppByteLen == null) {
 				throw new IllegalArgumentException("Class[" + c + "] must declare Annotation[CppByteLen] in field") ;

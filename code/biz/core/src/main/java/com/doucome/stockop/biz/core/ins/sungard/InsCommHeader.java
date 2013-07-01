@@ -7,7 +7,7 @@ import com.doucome.stockop.biz.core.model.cpp.Clong;
 import com.doucome.stockop.biz.core.model.cpp.Cword;
 
 /**
- * 金仕达协议指令头
+ * Ins header
  * @author langben 2013-6-26
  *
  */

@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.utils;
+﻿package com.doucome.stockop.biz.core.utils;
 
 public class ByteUtils {
 

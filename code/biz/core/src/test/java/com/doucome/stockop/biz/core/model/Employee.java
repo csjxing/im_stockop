@@ -1,17 +1,17 @@
-package com.doucome.stockop.biz.core.model;
+ï»¿package com.doucome.stockop.biz.core.model;
 
 import java.net.Socket;
 /**
- * ÓëcÓïÑÔÍ¨ĞÅ(java×öclient£¬c/c++×öserver£¬´«ËÍÒ»¸ö½á¹¹)
+ * ä¸cè¯­è¨€é€šä¿¡(javaåšclientï¼Œc/c++åšserverï¼Œä¼ é€ä¸€ä¸ªç»“æ„)
  * 
  * @author kingfish
  * @version 1.0
  */
 public class Employee {
-	private byte[] buf = new byte[28]; // ÎªËµÃ÷ÎÊÌâ£¬¶¨ËÀ´óĞ¡£¬ÊÂ¼şÖĞ¿ÉÒÔÁé»î´¦Àí
+	private byte[] buf = new byte[28]; // ä¸ºè¯´æ˜é—®é¢˜ï¼Œå®šæ­»å¤§å°ï¼Œäº‹ä»¶ä¸­å¯ä»¥çµæ´»å¤„ç†
 
 	/**
-	 * ½«int×ªÎªµÍ×Ö½ÚÔÚÇ°£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°†intè½¬ä¸ºä½å­—èŠ‚åœ¨å‰ï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 */
 	private static byte[] tolh(int n) {
 		byte[] b = new byte[4];
@@ -22,7 +22,7 @@ public class Employee {
 		return b;
 	}
 	/**
-	 * ½«byteÊı×é×ª»¯³ÉString
+	 * å°†byteæ•°ç»„è½¬åŒ–æˆString
 	 */
 	private static String toStr(byte[] valArr,int maxLen) {
 		int index = 0;
@@ -38,7 +38,7 @@ public class Employee {
 	}
 	
 	/**
-	 * ½«µÍ×Ö½ÚÔÚÇ°×ªÎªint£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°†ä½å­—èŠ‚åœ¨å‰è½¬ä¸ºintï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 */
 	private static int vtolh(byte[] bArr) {
 		int n = 0;
@@ -52,7 +52,7 @@ public class Employee {
 	public int id = 0;
 	public float salary = 0;
 	/**
-	 * ½«float×ªÎªµÍ×Ö½ÚÔÚÇ°£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°†floatè½¬ä¸ºä½å­—èŠ‚åœ¨å‰ï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 */
 	private static byte[] tolh(float f) {
 		return tolh(Float.floatToRawIntBits(f));
@@ -74,7 +74,7 @@ public class Employee {
 
 	}
 	/**
-	 * ¹¹Ôì²¢×ª»»
+	 * æ„é€ å¹¶è½¬æ¢
 	 */
 	public Employee(String name, int id, float salary) {
 		this.name = name;
@@ -92,14 +92,14 @@ public class Employee {
 	}
 	
 	/**
-	 * ·µ»ØÒª·¢ËÍµÄÊı×é
+	 * è¿”å›è¦å‘é€çš„æ•°ç»„
 	 */
 	public byte[] getbuf() {
 		return buf;
 	}
 
 	/**
-	 * ·¢ËÍ²âÊÔ
+	 * å‘é€æµ‹è¯•
 	 */
 	public static void main(String[] args) {
 		try {

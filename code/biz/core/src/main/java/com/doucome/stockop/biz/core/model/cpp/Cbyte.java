@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.model.cpp;
+ï»¿package com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
@@ -6,7 +6,7 @@ import com.doucome.stockop.biz.core.utils.FormatTransfer;
 
 /**
  * c++ BYTE (unsigned char)
- * <p>C++ µÄbyteÊÇ·Ç»ù±¾ÀàĞÍ£¬ÓëjavaµÄbyteÓĞÇø±ğ¡£¶¨ÒåÎªunsigned char . È¡Öµ0~255</p>
+ * <p>C++ çš„byteæ˜¯éåŸºæœ¬ç±»å‹ï¼Œä¸javaçš„byteæœ‰åŒºåˆ«ã€‚å®šä¹‰ä¸ºunsigned char . å–å€¼0~255</p>
  * @author langben 2013-6-27
  *
  */

@@ -1,11 +1,11 @@
-package com.doucome.stockop.biz.core.model.cpp;
+ï»¿package com.doucome.stockop.biz.core.model.cpp;
 
 import com.doucome.stockop.biz.core.annotation.CppByteLen;
 import com.doucome.stockop.biz.core.model.AbstractModel;
 import com.doucome.stockop.biz.core.utils.FormatTransfer;
 
 /**
- * c++ int ÀàÐÍ
+ * c++ int ç±»åž‹
  * @author langben 2013-6-27
  *
  */

@@ -6,7 +6,7 @@ import com.doucome.stockop.biz.core.model.cpp.Cbyte;
 import com.doucome.stockop.biz.core.model.cpp.Cstring;
 
 /**
- * 金仕达协议登陆
+ * ins login
  * @author langben 2013-6-28
  *
  */

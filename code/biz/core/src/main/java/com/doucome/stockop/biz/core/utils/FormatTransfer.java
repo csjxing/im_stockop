@@ -1,7 +1,7 @@
-package com.doucome.stockop.biz.core.utils;
+ï»¿package com.doucome.stockop.biz.core.utils;
 
 /**
- * ×Ö½ÚË³Ğò¹¤¾ß£¬ÓÃÓÚ´¦ÀíjavaºÍc¼æÈİ
+ * å­—èŠ‚é¡ºåºå·¥å…·ï¼Œç”¨äºå¤„ç†javaå’Œcå…¼å®¹
  * 
  * @author langben 2013-6-26
  * 
@@ -9,7 +9,7 @@ package com.doucome.stockop.biz.core.utils;
 public class FormatTransfer {
 
 	/**
-	 * ½« int×ªÎªµÍ×Ö½ÚÔÚÇ°£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† intè½¬ä¸ºä½å­—èŠ‚åœ¨å‰ï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 * 
 	 * @param n
 	 *            int
@@ -25,7 +25,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« int×ªÎª¸ß×Ö½ÚÔÚÇ°£¬µÍ×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† intè½¬ä¸ºé«˜å­—èŠ‚åœ¨å‰ï¼Œä½å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 * 
 	 * @param n
 	 *            int
@@ -41,7 +41,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« short×ªÎªµÍ×Ö½ÚÔÚÇ°£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† shortè½¬ä¸ºä½å­—èŠ‚åœ¨å‰ï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 * 
 	 * @param n
 	 *            short
@@ -55,7 +55,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« short×ªÎª¸ß×Ö½ÚÔÚÇ°£¬µÍ×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† shortè½¬ä¸ºé«˜å­—èŠ‚åœ¨å‰ï¼Œä½å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 * 
 	 * @param n
 	 *            short
@@ -69,7 +69,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½«½«int×ªÎª¸ß×Ö½ÚÔÚÇ°£¬µÍ×Ö½ÚÔÚºóµÄbyteÊı×é public static byte[] toHH(int number) { int
+	 * å°†å°†intè½¬ä¸ºé«˜å­—èŠ‚åœ¨å‰ï¼Œä½å­—èŠ‚åœ¨åçš„byteæ•°ç»„ public static byte[] toHH(int number) { int
 	 * temp = number; byte[] b = new byte[4]; for (int i = b.length - 1; i > -1;
 	 * i--) { b = new Integer(temp & 0xff).byteValue(); temp = temp >> 8; }
 	 * return b; } public static byte[] IntToByteArray(int i) { byte[] abyte0 =
@@ -79,21 +79,21 @@ public class FormatTransfer {
 	 */
 
 	/**
-	 * ½« float×ªÎªµÍ×Ö½ÚÔÚÇ°£¬¸ß×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† floatè½¬ä¸ºä½å­—èŠ‚åœ¨å‰ï¼Œé«˜å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 */
 	public static byte[] toLH(float f) {
 		return toLH(Float.floatToRawIntBits(f));
 	}
 
 	/**
-	 * ½« float×ªÎª¸ß×Ö½ÚÔÚÇ°£¬µÍ×Ö½ÚÔÚºóµÄbyteÊı×é
+	 * å°† floatè½¬ä¸ºé«˜å­—èŠ‚åœ¨å‰ï¼Œä½å­—èŠ‚åœ¨åçš„byteæ•°ç»„
 	 */
 	public static byte[] toHH(float f) {
 		return toHH(Float.floatToRawIntBits(f));
 	}
 
 	/**
-	 * ½« String×ªÎªbyteÊı×é
+	 * å°† Stringè½¬ä¸ºbyteæ•°ç»„
 	 */
 	public static byte[] stringToBytes(String s, int length) {
 		while (s.getBytes().length < length) {
@@ -103,7 +103,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½«×Ö½ÚÊı×é×ª»»ÎªString
+	 * å°†å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºString
 	 * 
 	 * @param b
 	 *            byte[]
@@ -119,7 +119,7 @@ public class FormatTransfer {
 	}
 	
 	/**
-	 * ½«byteÊı×é×ª»¯³ÉString
+	 * å°†byteæ•°ç»„è½¬åŒ–æˆString
 	 */
 	public static String lbytesToString(byte[] b,int maxLen) {
 		int index = 0;
@@ -135,13 +135,13 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½«byteÊı×é×ª»¯³ÉString
+	 * å°†byteæ•°ç»„è½¬åŒ–æˆString
 	 */
 	public static String lbytesToString(byte[] b) {
 		return lbytesToString(b,Integer.MAX_VALUE) ;
 	}
 	/**
-	 * ½«×Ö·û´®×ª»»ÎªbyteÊı×é
+	 * å°†å­—ç¬¦ä¸²è½¬æ¢ä¸ºbyteæ•°ç»„
 	 * 
 	 * @param s
 	 *            String
@@ -152,7 +152,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½«¸ß×Ö½ÚÊı×é×ª»»Îªint
+	 * å°†é«˜å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºint
 	 * 
 	 * @param b
 	 *            byte[]
@@ -177,7 +177,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½«µÍ×Ö½ÚÊı×é×ª»»Îªint
+	 * å°†ä½å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºint
 	 * 
 	 * @param b
 	 *            byte[]
@@ -202,7 +202,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ¸ß×Ö½ÚÊı×éµ½shortµÄ×ª»»
+	 * é«˜å­—èŠ‚æ•°ç»„åˆ°shortçš„è½¬æ¢
 	 * 
 	 * @param b
 	 *            byte[]
@@ -226,7 +226,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * µÍ×Ö½ÚÊı×éµ½shortµÄ×ª»»
+	 * ä½å­—èŠ‚æ•°ç»„åˆ°shortçš„è½¬æ¢
 	 * 
 	 * @param b
 	 *            byte[]
@@ -250,7 +250,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ¸ß×Ö½ÚÊı×é×ª»»Îªfloat
+	 * é«˜å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºfloat
 	 * 
 	 * @param b
 	 *            byte[]
@@ -265,7 +265,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * µÍ×Ö½ÚÊı×é×ª»»Îªfloat
+	 * ä½å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºfloat
 	 * 
 	 * @param b
 	 *            byte[]
@@ -280,7 +280,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« byteÊı×éÖĞµÄÔªËØµ¹ĞòÅÅÁĞ
+	 * å°† byteæ•°ç»„ä¸­çš„å…ƒç´ å€’åºæ’åˆ—
 	 */
 	public static byte[] bytesReverseOrder(byte[] b) {
 		return bytesReverseOrder(b , -1) ;
@@ -302,7 +302,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ´òÓ¡byteÊı×é
+	 * æ‰“å°byteæ•°ç»„
 	 */
 	public static void printBytes(byte[] bb) {
 		int length = bb.length;
@@ -322,7 +322,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« intÀàĞÍµÄÖµ×ª»»Îª×Ö½ÚĞòµßµ¹¹ıÀ´¶ÔÓ¦µÄintÖµ
+	 * å°† intç±»å‹çš„å€¼è½¬æ¢ä¸ºå­—èŠ‚åºé¢ å€’è¿‡æ¥å¯¹åº”çš„intå€¼
 	 * 
 	 * @param i
 	 *            int
@@ -334,7 +334,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« shortÀàĞÍµÄÖµ×ª»»Îª×Ö½ÚĞòµßµ¹¹ıÀ´¶ÔÓ¦µÄshortÖµ
+	 * å°† shortç±»å‹çš„å€¼è½¬æ¢ä¸ºå­—èŠ‚åºé¢ å€’è¿‡æ¥å¯¹åº”çš„shortå€¼
 	 * 
 	 * @param s
 	 *            short
@@ -346,7 +346,7 @@ public class FormatTransfer {
 	}
 
 	/**
-	 * ½« floatÀàĞÍµÄÖµ×ª»»Îª×Ö½ÚĞòµßµ¹¹ıÀ´¶ÔÓ¦µÄfloatÖµ
+	 * å°† floatç±»å‹çš„å€¼è½¬æ¢ä¸ºå­—èŠ‚åºé¢ å€’è¿‡æ¥å¯¹åº”çš„floatå€¼
 	 * 
 	 * @param f
 	 *            float

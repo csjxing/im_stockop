@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.model;
+﻿package com.doucome.stockop.biz.core.model;
 
 
 public class Employee1 extends NativeStruct {

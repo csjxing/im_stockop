@@ -1,9 +1,9 @@
-package com.doucome.stockop.biz.core.model;
+锘縫ackage com.doucome.stockop.biz.core.model;
 
 import com.doucome.stockop.biz.core.utils.NativeConvertUtils;
 
 /**
- * 网络字节序C++结构体基类，支持解析的field类型：
+ * 
  * <ul>
  *  <li>byte</li>	
  *  <li>int</li>
@@ -19,7 +19,7 @@ import com.doucome.stockop.biz.core.utils.NativeConvertUtils;
 public abstract class NativeStruct extends AbstractModel {
 
 	/**
-	 * 转换成结构体的数组
+	 * 
 	 * @return
 	 */
 	public byte[] getNativeBuff() {

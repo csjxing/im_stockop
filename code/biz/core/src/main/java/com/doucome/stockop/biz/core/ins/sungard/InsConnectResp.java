@@ -6,7 +6,7 @@ import com.doucome.stockop.biz.core.model.cpp.Cbyte;
 import com.doucome.stockop.biz.core.model.cpp.Cstring;
 
 /**
- * 登陆响应
+ * ins response
  * @author langben 2013-6-29
  *
  */
@@ -14,51 +14,51 @@ import com.doucome.stockop.biz.core.model.cpp.Cstring;
 public class InsConnectResp extends NativeStruct {
 
 	/**
-	 * 加密方式
+	 * 
 	 */
 	Cbyte encryptMethod;	
 	
 	/**
-	 * 压缩算法
+	 * 
 	 */
 	Cbyte compressMethod;		    
 	
 	/**
-	 *  柜台的版本号，5－－V5柜台、6－－V6柜台
+	 *  
 	 */
 	Cbyte version;				   
 	
 	/**
-	 * 适用的委托方式代码
+	 * 
 	 */
 	Cstring cWtfs;					
 	
 	/**
-	 * 供应商代码
+	 * 
 	 */
 	@CppByteLen(3)
 	Cstring szGYS;			
 	
 	/**
-	 * 适用的经纪公司代码
+	 * 
 	 */
 	@CppByteLen(9)
 	Cstring szCompanyName;		 
 	
 	/**
-	 * 服务器的日期
+	 * 
 	 */
 	@CppByteLen(9)
 	Cstring szDate;	
 	
 	/**
-	 * 服务器的时间
+	 * 
 	 */
 	@CppByteLen(9)
 	Cstring szTime;				
 	
 	/**
-	 *  服务器下一次使用的key
+	 *  
 	 */
 	@CppByteLen(32)
 	Cstring Key;

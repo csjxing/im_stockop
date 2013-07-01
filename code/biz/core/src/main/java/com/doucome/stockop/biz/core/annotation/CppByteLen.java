@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 
 /**
- * C++中占用字节数
+ * C++ BYTES LEN
  * @author langben 2013-6-28
  *
  */

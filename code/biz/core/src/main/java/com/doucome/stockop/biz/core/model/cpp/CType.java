@@ -1,20 +1,20 @@
-package com.doucome.stockop.biz.core.model.cpp;
+锘縫ackage com.doucome.stockop.biz.core.model.cpp;
 
 public interface CType {
 	
 	/**
-	 * 4字节对齐
+	 * 4瀛楄妭瀵归綈
 	 */
 	public static int pragma_pack = 4 ;
 
 	/**
-	 * 转为低字节在前，高字节在后的byte数组
+	 * 杞负浣庡瓧鑺傚湪鍓嶏紝楂樺瓧鑺傚湪鍚庣殑byte鏁扮粍
 	 * @return
 	 */
 	byte[] getNativeBuff() ;
 	
 	/**
-	 * 从外部buff解析
+	 * 浠庡閮╞uff瑙ｆ瀽
 	 * @param b
 	 * @return
 	 */
