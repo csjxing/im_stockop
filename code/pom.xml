@@ -10,7 +10,12 @@
 	<name>stockop_all</name>
 
 	<modules>
+		<module>./biz/common</module>
 		<module>./biz/core</module>
+		<module>./web/common</module>
+		<module>./web/inter</module>
+		<module>./bundle/war</module>
+		<module>./deploy</module>
 	</modules>
 
 	<properties>

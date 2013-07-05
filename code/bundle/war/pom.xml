@@ -20,7 +20,16 @@
 		<wtpversion>2.0</wtpversion>
 	</properties>
 	<dependencies>
-		
+		<dependency>
+			<groupId>com.doucome.stockop</groupId>
+			<artifactId>stockop.web.common</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.doucome.stockop</groupId>
+			<artifactId>stockop.web.inter</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

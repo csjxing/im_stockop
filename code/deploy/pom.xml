@@ -18,7 +18,16 @@
 	<name>deploy</name>
 	<description>Auto converted POM for deploy</description>
 	<dependencies>
-		
+		<dependency>
+			<groupId>com.doucome.stockop</groupId>
+			<artifactId>stockop.web.common</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.doucome.stockop</groupId>
+			<artifactId>stockop.web.inter</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -155,7 +164,7 @@
 					<plugin>
 						<groupId>com.doucome.maven.plugins</groupId>
 						<artifactId>maven-autoconf-plugin</artifactId>
-						<version>0.4.22</version>
+						<version>0.4.24</version>
 						<executions>
 							<execution>
 								<phase>pre-integration-test</phase>

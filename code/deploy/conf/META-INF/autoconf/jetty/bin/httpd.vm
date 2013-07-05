@@ -43,7 +43,7 @@ ARGV="$@"
 # 
 cd `dirname $0`/..
 BASE=`pwd`
-HTTPD_HOME="${chaoexpo_httpdhome}"
+HTTPD_HOME="${stockop_httpdhome}"
 
 HTTPD="$HTTPD_HOME/bin/httpd -f $BASE/conf/httpd.conf"
 #
@@ -83,7 +83,7 @@ case $ARGV in
 start|stop|restart|graceful)
 	if [ "$ARGV" = "start" ] || [ "$ARGV" = "restart" ] ; then
     	# jk.shm
-    	for a in `ls ${chaoexpo_output}/jk.shm*` ; do
+    	for a in `ls ${stockop_output}/jk.shm*` ; do
     		rm -f $a
     	done
 	fi

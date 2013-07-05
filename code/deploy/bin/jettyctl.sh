@@ -37,13 +37,13 @@ then
 	mkdir "$JETTY_SERVER_HOME/etc"	
 fi 
 
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/jetty.xml" "$JETTY_SERVER_HOME/etc/jetty.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/jetty-logging.xml" "$JETTY_SERVER_HOME/etc/jetty-logging.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/jetty-jmx.xml" "$JETTY_SERVER_HOME/etc/jetty-jmx.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/jetty-deploy.xml" "$JETTY_SERVER_HOME/etc/jetty-deploy.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/jetty-webapps.xml" "$JETTY_SERVER_HOME/etc/jetty-webapps.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/etc/webdefault.xml" "$JETTY_SERVER_HOME/etc/webdefault.xml"
-cp  "$CHAOEXPO_DEPLOY_HOME/conf/jetty/start.ini" "$JETTY_SERVER_HOME/start.ini"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/jetty.xml" "$JETTY_SERVER_HOME/etc/jetty.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/jetty-logging.xml" "$JETTY_SERVER_HOME/etc/jetty-logging.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/jetty-jmx.xml" "$JETTY_SERVER_HOME/etc/jetty-jmx.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/jetty-deploy.xml" "$JETTY_SERVER_HOME/etc/jetty-deploy.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/jetty-webapps.xml" "$JETTY_SERVER_HOME/etc/jetty-webapps.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/etc/webdefault.xml" "$JETTY_SERVER_HOME/etc/webdefault.xml"
+cp  "$STOCKOP_DEPLOY_HOME/conf/jetty/start.ini" "$JETTY_SERVER_HOME/start.ini"
 
 
 webapps="$JETTY_SERVER_HOME/webapps"
@@ -54,11 +54,11 @@ then
 fi 
 
 if  $production_mode ; then
-	echo "start copy war $CHAOEXPO_DEPLOY_HOME/web.war to $JETTY_SERVER_HOME/webapps/root.war"
+	echo "start copy war $STOCKOP_DEPLOY_HOME/web.war to $JETTY_SERVER_HOME/webapps/root.war"
 	rm -rf  "$JETTY_SERVER_HOME/webapps/root.war" 
-	cp "$CHAOEXPO_DEPLOY_HOME/web.war"  "$JETTY_SERVER_HOME/webapps/root.war" 
+	cp "$STOCKOP_DEPLOY_HOME/web.war"  "$JETTY_SERVER_HOME/webapps/root.war" 
 else
-	cp  "$CHAOEXPO_DEPLOY_HOME/../chaoexpo.bundle.war-1.0-SNAPSHOT.war"  "$JETTY_SERVER_HOME/webapps/root.war"
+	cp  "$STOCKOP_DEPLOY_HOME/../stockop.bundle.war-1.0-SNAPSHOT.war"  "$JETTY_SERVER_HOME/webapps/root.war"
 fi
 
 

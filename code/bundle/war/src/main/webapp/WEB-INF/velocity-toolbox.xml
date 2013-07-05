@@ -3,41 +3,41 @@
 	<tool>
 		<key>dateUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.DateUtilsToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.DateUtilsToolbox</class>
 	</tool>
 	<tool>
 		<key>env</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.EnvPropertiesToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.EnvPropertiesToolbox</class>
 	</tool>
 	
 	<tool>
 		<key>stringUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.StringUtilsToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.StringUtilsToolbox</class>
 	</tool>
 	
 	<tool>
 		<key>decimalUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.DecimalUtilsToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.DecimalUtilsToolbox</class>
 	</tool>
 	
 	<tool>
 		<key>staticVerUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.StaticVersionToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.StaticVersionToolbox</class>
 	</tool>
 
 	<tool>
 		<key>collectionUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.web.common.toolbox.CollectionUtilsToolbox</class>
+		<class>com.doucome.stockop.web.common.toolbox.CollectionUtilsToolbox</class>
 	</tool>
 	
 	<tool>
 		<key>systemUtils</key>
 		<scope>application</scope>
-		<class>com.doucome.chaoexpo.biz.core.utils.SystemUtil</class>
+		<class>com.doucome.stockop.biz.core.utils.SystemUtil</class>
 	</tool>
 </toolbox> 

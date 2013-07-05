@@ -2,7 +2,7 @@
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<display-name>chaoexpo</display-name>
+	<display-name>stockop</display-name>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -23,7 +23,7 @@
 	
 	<filter>
 		<filter-name>p3pFilter</filter-name>
-		<filter-class>com.doucome.chaoexpo.web.common.filter.P3PFilter</filter-class>
+		<filter-class>com.doucome.stockop.web.common.filter.P3PFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
@@ -59,7 +59,7 @@
 	
 	<servlet>
 		<servlet-name>systemINIT</servlet-name>
-		<servlet-class>com.doucome.chaoexpo.web.common.servlet.SystemINIT</servlet-class>
+		<servlet-class>com.doucome.stockop.web.common.servlet.SystemINIT</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

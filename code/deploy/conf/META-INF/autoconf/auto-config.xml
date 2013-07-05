@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
     <group name="soft home" description="环境设置">
-        <property name="chaoexpo.unix.user" defaultValue="admin" description="Linux下运行的用户,为apache使用"/>
+        <property name="stockop.unix.user" defaultValue="admin" description="Linux下运行的用户,为apache使用"/>
     </group>
     
     <group name="server env" description="路径的设置">
-        <property name="chaoexpo.deployhome" defaultValue="/home/${chaoexpo_unix_user}/web-deploy" description="应用程序部署目录"/>
-        <property name="chaoexpo.htdocs.home" defaultValue="${chaoexpo_deployhome}/htdocs" description="http htdocs 目录"/>
-        <property name="chaoexpo.javahome" defaultValue="/usr/corner/java" description="运行JBOSS的JDK"/>
-        <property name="chaoexpo.httpdhome" defaultValue="/usr/corner/httpd22" description="运行httpd的目录"/>
-        <property name="chaoexpo.jettyhome" defaultValue="/usr/corner/jetty" description="JETTY的目录"/>
-        <property name="chaoexpo.jettyserverhome" defaultValue="${chaoexpo_deployhome}/jetty_server" description="Jetty的目录"/>
+        <property name="stockop.deployhome" defaultValue="/home/${stockop_unix_user}/web-deploy" description="应用程序部署目录"/>
+        <property name="stockop.htdocs.home" defaultValue="${stockop_deployhome}/htdocs" description="http htdocs 目录"/>
+        <property name="stockop.javahome" defaultValue="/usr/corner/java" description="运行JBOSS的JDK"/>
+        <property name="stockop.httpdhome" defaultValue="/usr/corner/httpd22" description="运行httpd的目录"/>
+        <property name="stockop.jettyhome" defaultValue="/usr/corner/jetty" description="JETTY的目录"/>
+        <property name="stockop.jettyserverhome" defaultValue="${stockop_deployhome}/jetty_server" description="Jetty的目录"/>
      
     </group>
     
     <group name="htdocs dir" description="静态资源的设置">
-        <property name="chaoexpo.htdocs.home" description="静态资源部署目录" defaultValue="${chaoexpo_deployhome}/htdocs" />        
+        <property name="stockop.htdocs.home" description="静态资源部署目录" defaultValue="${stockop_deployhome}/htdocs" />        
     </group>  
     
     

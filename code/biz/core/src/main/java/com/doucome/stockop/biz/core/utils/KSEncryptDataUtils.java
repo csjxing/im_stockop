@@ -30,7 +30,7 @@ public class KSEncryptDataUtils {
 		byte[] outbuf = new byte[1024]; 
 		int outsize = outbuf.length;
 		
-		if(KSENCRYPTDATALIB.KSEncryptData(inbuf, inlen, outbuf, outsize, FormatTransfer.stringToBytes(ENCRYPT_KEY), ENFLAG, ENCRYPT_TYPE_DES)){
+		if(KSENCRYPTDATALIB.KSEncryptData(plainText, inlen, outbuf, outsize, ENCRYPT_KEY, ENFLAG, ENCRYPT_TYPE_DES)){
 			return FormatTransfer.bytesToString(outbuf);
 		}else{
 			return "";
@@ -44,7 +44,7 @@ public class KSEncryptDataUtils {
 		byte[] outbuf = new byte[1024]; 
 		int outsize = outbuf.length;
 		
-		if(KSENCRYPTDATALIB.KSEncryptData(inbuf, inlen, outbuf, outsize, FormatTransfer.stringToBytes(ENCRYPT_KEY), UNFLAG, ENCRYPT_TYPE_DES)){
+		if(KSENCRYPTDATALIB.KSEncryptData(cipherText, inlen, outbuf, outsize, ENCRYPT_KEY, UNFLAG, ENCRYPT_TYPE_DES)){
 			return FormatTransfer.bytesToString(outbuf);
 		}else{
 			return "";
@@ -56,7 +56,7 @@ public class KSEncryptDataUtils {
 		KSEncryptDataLib INSTANCE = (KSEncryptDataLib)
 				Native.loadLibrary("KSEncryptData", KSEncryptDataLib.class);
 		
-		boolean KSEncryptData(byte[] inbuf ,int inlen, byte[] outbuf,int outsize ,byte[] encryptKey, short flag ,short entype); 
+		boolean KSEncryptData(String inbuf ,int inlen, byte[] outbuf,int outsize ,String encryptKey, short flag ,short entype); 
 	}
 	
 	public static void main(String[] args) {
