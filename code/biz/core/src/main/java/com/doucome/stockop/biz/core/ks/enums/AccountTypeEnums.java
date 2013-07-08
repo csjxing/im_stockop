@@ -1,4 +1,4 @@
-package com.doucome.stockop.biz.core.ins.ks.enums;
+package com.doucome.stockop.biz.core.ks.enums;
 
 /**
  * 账户类型

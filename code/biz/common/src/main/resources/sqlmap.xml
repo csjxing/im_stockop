@@ -13,5 +13,6 @@
 	-->
     <settings cacheModelsEnabled="true" enhancementEnabled="true" lazyLoadingEnabled="false" maxRequests="3000" maxSessions="3000" maxTransactions="3000" useStatementNamespaces="true"/>
     
+    
   	
 </sqlMapConfig>

@@ -12,4 +12,9 @@
 	default-autowire="byName">
 
 	
+	<bean id="ksClientFactory" class="com.doucome.stockop.biz.core.ks.connector.DefaultKsClientFactory">
+		<property name="server" value="${stockop.ks.server}"/>
+		<property name="serverPort" value="${stockop.ks.server.port}"/>
+	</bean>
+	
 </beans>

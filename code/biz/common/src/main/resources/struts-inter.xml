@@ -5,9 +5,9 @@
 <struts>
 	<package name="inter" namespace="/inter" extends="default">
 		<interceptors>
-            <interceptor-stack name="chaoDefaultStack">
+            <interceptor-stack name="interDefaultStack">
 				 <interceptor-ref name="doucomeDefaultStack" />
-				 <interceptor-ref name="setChaoContextInterceptor" />
+				 <interceptor-ref name="setInterContextInterceptor" />
 			 </interceptor-stack>
 		</interceptors>
 	</package>

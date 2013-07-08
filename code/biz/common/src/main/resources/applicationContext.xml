@@ -13,12 +13,12 @@
 
 	
 	<import resource="classpath:stockop/bean/biz-common.xml" />
-	<import resource="classpath:stockop/bean/biz-dao.xml" />
+	<!-- <import resource="classpath:stockop/bean/biz-dao.xml" /> -->
 	<import resource="classpath:stockop/bean/biz-service.xml" />
-	<import resource="classpath:stockop/bean/biz-datasource.xml" />
+	<!-- <import resource="classpath:stockop/bean/biz-datasource.xml" /> -->
 	<import resource="classpath:stockop/bean/biz-uri.xml" />
 	
-	<import resource="classpath:stockop/bean/stockop/biz-stockop-dao.xml" />
+	<!-- <import resource="classpath:stockop/bean/stockop/biz-stockop-dao.xml" /> -->
 	<import resource="classpath:stockop/bean/stockop/biz-stockop-service.xml" />
 	<import resource="classpath:stockop/bean/stockop/biz-stockop-bo.xml" />
 	
