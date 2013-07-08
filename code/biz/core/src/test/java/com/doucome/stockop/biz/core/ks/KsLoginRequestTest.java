@@ -35,7 +35,7 @@ public class KsLoginRequestTest {
 		//调用
 		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
 		
-		
+		//撤单
 		KsCancellationRequest cancelRequest = new KsCancellationRequest() ;
 		//组装参数
 		//cancelRequest.setXXX
