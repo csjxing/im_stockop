@@ -2,9 +2,9 @@ package com.doucome.stockop.biz.core.ks.constant;
 
 public class SeqGenrator {
 
-	public static int seq = 1 ;
+	public static long seq = 1L ;
 	
-	public static int nextSeq() {
+	public static long nextSeq() {
 		return ++ seq ;
 	}
 }

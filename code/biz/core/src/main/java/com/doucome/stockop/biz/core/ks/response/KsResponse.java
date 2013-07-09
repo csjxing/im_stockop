@@ -23,7 +23,7 @@ public abstract class KsResponse extends AbstractModel {
 	/**
 	 * 请求编号
 	 */
-	protected Integer seq ;
+	protected Long seq ;
 	
 	/**
 	 * 是否成功
@@ -84,7 +84,7 @@ public abstract class KsResponse extends AbstractModel {
 		return ip;
 	}
 
-	public Integer getSeq() {
+	public Long getSeq() {
 		return seq;
 	}
 
@@ -116,7 +116,7 @@ public abstract class KsResponse extends AbstractModel {
 		this.ip = ip;
 	}
 
-	public void setSeq(Integer seq) {
+	public void setSeq(Long seq) {
 		this.seq = seq;
 	}
 

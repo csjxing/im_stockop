@@ -23,7 +23,7 @@ public abstract class KsRequest <T extends KsResponse> {
 	/**
 	 * 请求编号
 	 */
-	protected Integer seq ;
+	protected Long seq ;
 	
 	/**
 	 * 功能编码
@@ -102,7 +102,7 @@ public abstract class KsRequest <T extends KsResponse> {
 		return ip;
 	}
 
-	public Integer getSeq() {
+	public Long getSeq() {
 		return seq;
 	}
 

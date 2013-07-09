@@ -1,7 +1,6 @@
 package com.doucome.stockop.biz.core.ks;
 
 import java.lang.reflect.Field;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -42,7 +41,7 @@ public class ResponseParser<T extends KsResponse> {
 			T respObject = clazz.newInstance() ;
 			respObject.setFlag(flag) ;
 			respObject.setIp(ip) ;
-			respObject.setSeq(Integer.parseInt(seq)) ;
+			respObject.setSeq(Long.parseLong(seq)) ;
 			respObject.setSuccess(success) ;
 			if(yOrN == YesOrNoEnums.NO) {
 				respObject.setMsg(splits[4]) ;
