@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.doucome.stockop.biz.core.constant.Constant;
 import com.doucome.stockop.biz.core.ks.enums.ErrorEnums;
 import com.doucome.stockop.biz.core.ks.exception.KsException;
 import com.doucome.stockop.biz.core.ks.request.KsRequest;
@@ -21,6 +22,8 @@ public class DefaultKsClient implements KsClient {
 	private byte[] buff = new byte[4096] ;
 	
 	private Lock lock = new ReentrantLock() ;
+	
+	private long timestamp = 0L ;
 	
 	public DefaultKsClient(String server , int serverPort) throws KsException {
 		try {
@@ -38,7 +41,7 @@ public class DefaultKsClient implements KsClient {
 		try {
 			String reqStr = request.toRequest() ;
 			if(StringUtils.isBlank(reqStr)) {
-				throw new KsException(ErrorEnums.INPUT_PARAM_ERROR , "input request[" + request + "] error !") ;
+				throw new KsException(ErrorEnums.INPUT_ARGUMENT_ERROR , "input request[" + request + "] error !") ;
 			}
 			
 			try {
@@ -49,16 +52,19 @@ public class DefaultKsClient implements KsClient {
 			
 			try {
 				socket.getInputStream().read(buff) ;
-				String resp = Native.toString(buff) ;
+				String resp = Native.toString(buff,Constant.CHARSET_GBK) ;
 				ResponseParser<T> parser = new ResponseParser<T>(request.getResponseClass()) ;
 				T response = parser.parse(resp) ;
+				
+				timestamp = System.currentTimeMillis() ;
+				
 				return response ; 
 			} catch (IOException e) {
 				throw new KsException(ErrorEnums.NETWORK_ERROR , e.getMessage() , e) ;
 			} catch (Exception e) {
 				throw new KsException(ErrorEnums.INTERNAL_ERROR , e.getMessage() , e) ;
 			}
-			
+	
 		} finally {
 			lock.unlock() ;
 		}

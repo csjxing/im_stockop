@@ -9,6 +9,8 @@ import com.doucome.stockop.biz.core.ks.response.KsCancellationResponse;
  */
 public class KsCancellationRequest extends KsRequest<KsCancellationResponse> {
 
+	//private 
+	
 	@Override
 	public Class<KsCancellationResponse> getResponseClass() {
 		return KsCancellationResponse.class;

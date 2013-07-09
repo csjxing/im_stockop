@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.doucome.stockop.biz.core.ks.enums.ErrorEnums;
 import com.doucome.stockop.biz.core.ks.exception.KsException;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.response.KsLoginResponse;
@@ -38,7 +39,7 @@ public class DefaultKsClientFactory implements KsClientFactory {
 				clientMap.put(accountId, client) ;
 				return client ;
 			} else {
-				throw new KsException(response.getError() , response.getErrorMsg()) ;
+				throw new KsException(ErrorEnums.REMOTE_INVOKE_ERROR, response.getSubCode() ,  response.getMsg()) ;
 			}
 			
 		} finally {

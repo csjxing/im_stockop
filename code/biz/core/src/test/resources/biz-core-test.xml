@@ -9,12 +9,20 @@
 			http://roma.alibaba.com/schema http://roma.alibaba.com/schema/roma-component.xsd
 			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
-	default-autowire="byName">
+			default-autowire="byName">
 
 	
-	<bean id="ksClientFactory" class="com.doucome.stockop.biz.core.ks.DefaultKsClientFactory">
-		<property name="server" value="${stockop.ks.server}"/>
-		<property name="serverPort" value="${stockop.ks.server.port}"/>
-	</bean>
+	<import resource="classpath:stockop/bean/biz-common.xml" />
+	<!-- <import resource="classpath:stockop/bean/biz-dao.xml" /> -->
+	<import resource="classpath:stockop/bean/biz-service.xml" />
+	<!-- <import resource="classpath:stockop/bean/biz-datasource.xml" /> -->
+	<import resource="classpath:stockop/bean/biz-uri.xml" />
 	
+	<!-- <import resource="classpath:stockop/bean/stockop/biz-stockop-dao.xml" /> -->
+	<import resource="classpath:stockop/bean/stockop/biz-stockop-service.xml" />
+	<import resource="classpath:stockop/bean/stockop/biz-stockop-bo.xml" />
+	
+	<!-- <import resource="classpath:stockop/bean/web/biz-web-service.xml" /> -->
+	
+
 </beans>

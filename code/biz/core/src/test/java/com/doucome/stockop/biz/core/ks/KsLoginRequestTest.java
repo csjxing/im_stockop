@@ -1,18 +1,22 @@
 package com.doucome.stockop.biz.core.ks;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
+import com.doucome.stockop.biz.common.unittest.AbstractBaseJUnit4Test;
+import com.doucome.stockop.biz.common.utils.IPUtils;
 import com.doucome.stockop.biz.core.ks.request.KsCancellationRequest;
 import com.doucome.stockop.biz.core.ks.request.KsCommissionRequest;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
-import com.doucome.stockop.biz.core.ks.response.KsCancellationResponse;
-import com.doucome.stockop.biz.core.ks.response.KsCommissionResponse;
 
-public class KsLoginRequestTest {
+@ContextConfiguration(locations = { "classpath:biz-core-test.xml" })
+public class KsLoginRequestTest extends AbstractBaseJUnit4Test {
 
 	@Autowired
 	private KsClientFactory ksClientFactory ;
 	
+	@Test
 	public void test() {
 		
 		//建立一个长连接
@@ -33,7 +37,7 @@ public class KsLoginRequestTest {
 		//commissionRequest.setXXX
 		//...
 		//调用
-		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
+		//KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
 		
 		//撤单
 		KsCancellationRequest cancelRequest = new KsCancellationRequest() ;
@@ -41,7 +45,12 @@ public class KsLoginRequestTest {
 		//cancelRequest.setXXX
 		//...
 		//调用
-		KsCancellationResponse cancelResponse = client.execute(cancelRequest) ;
+		//KsCancellationResponse cancelResponse = client.execute(cancelRequest) ;
 		//
+	}
+	
+	public static void main(String[] args) {
+		Long ip = IPUtils.toAddrLong("114.103.152.67") ;
+		System.out.println(ip);
 	}
 }

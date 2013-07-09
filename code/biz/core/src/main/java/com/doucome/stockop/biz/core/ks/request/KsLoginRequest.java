@@ -21,6 +21,7 @@ public class KsLoginRequest extends KsRequest<KsLoginResponse> {
 	
 	/**
 	 * 账户类型
+	 * <ul style="color:red;"><li>必须</li></ul>
 	 */
 	private String accountType ;
 	
@@ -30,14 +31,20 @@ public class KsLoginRequest extends KsRequest<KsLoginResponse> {
 	private String reserved ;
 	
 	/**
-	 * 
+	 * 账号
+	 * <ul style="color:red;"><li>必须</li></ul>
 	 */
 	private String account ;
 	
+	/**
+	 * 密码
+	 * <ul style="color:red;"><li>必须</li></ul>
+	 */
 	private String password ;
 	
 	/**
 	 * 委托方式
+	 * <ul style="color:red;"><li>必须</li></ul>
 	 */
 	private String commissionWay ;
 	
