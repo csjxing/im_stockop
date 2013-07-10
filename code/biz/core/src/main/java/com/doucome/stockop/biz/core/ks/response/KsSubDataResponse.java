@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
 
 import com.doucome.stockop.biz.core.ks.constant.KsConstant;
 import com.doucome.stockop.biz.core.model.AbstractModel;
 
-public abstract class KsResponse extends AbstractModel {
+public abstract class KsSubDataResponse extends AbstractModel {
 
-	protected String flag = KsConstant.RESPONSE_FLAG ;
+	protected String flag = KsConstant.RESPONSE_FLAG;
 	
 	/**
 	 * 发起源地址
@@ -23,25 +22,6 @@ public abstract class KsResponse extends AbstractModel {
 	 * 请求编号
 	 */
 	protected Long seq ;
-	
-	/**
-	 * 是否成功
-	 */
-	protected String success ; 
-	
-	/**
-	 * 错误信息
-	 */
-	protected String msg ;
-	
-	/**
-	 * 子错误码
-	 */
-	protected Integer subCode ;		
-	
-	public boolean isSuccess() {
-		return StringUtils.equals(success , "Y") ;
-	}
 		
 	/**
 	 * 
@@ -52,7 +32,6 @@ public abstract class KsResponse extends AbstractModel {
 		order.add("flag") ;
 		order.add("ip") ;
 		order.add("seq") ;
-		order.add("success") ;
 		return order ;
 	}
 	
@@ -71,7 +50,6 @@ public abstract class KsResponse extends AbstractModel {
 	 * -------------------------------------------------------------------------------------------------
 	 */
 	
-
 	public String getFlag() {
 		return flag;
 	}
@@ -82,26 +60,6 @@ public abstract class KsResponse extends AbstractModel {
 
 	public Long getSeq() {
 		return seq;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public Integer getSubCode() {
-		return subCode;
-	}
-
-	public String getSuccess() {
-		return success;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public void setSubCode(Integer subCode) {
-		this.subCode = subCode;
 	}
 
 	public void setFlag(String flag) {
@@ -116,8 +74,4 @@ public abstract class KsResponse extends AbstractModel {
 		this.seq = seq;
 	}
 
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-	
 }

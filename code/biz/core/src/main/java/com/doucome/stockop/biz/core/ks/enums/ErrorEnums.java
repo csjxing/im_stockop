@@ -18,6 +18,16 @@ public enum ErrorEnums {
 	INTERNAL_ERROR(3001) ,
 	
 	/**
+	 * 重复登录
+	 */
+	ALREADY_LOGIN(3002) ,
+	
+	/**
+	 * 未登录
+	 */
+	NOT_LOGIN(3003) ,
+	
+	/**
 	 * 调用远程业务错误
 	 */
 	REMOTE_INVOKE_ERROR(4001) ,

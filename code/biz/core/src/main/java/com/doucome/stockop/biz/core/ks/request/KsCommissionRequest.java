@@ -100,7 +100,7 @@ public class KsCommissionRequest extends KsRequest<KsCommissionResponse>{
 	/**
 	 * 约定号，委托子业务为z30、z40时必输
 	 */
-	private String contract ;
+	private String agreement ;
 	
 	/**
 	 * 对方交易单元，委托子业务为z30、z40时必输
@@ -228,12 +228,12 @@ public class KsCommissionRequest extends KsRequest<KsCommissionResponse>{
 		this.commissionSubsidiary = commissionSubsidiary;
 	}
 
-	public String getContract() {
-		return contract;
+	public String getAgreement() {
+		return agreement;
 	}
 
-	public void setContract(String contract) {
-		this.contract = contract;
+	public void setAgreement(String agreement) {
+		this.agreement = agreement;
 	}
 
 	public String getTargetTradeUnit() {

@@ -5,12 +5,18 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.doucome.stockop.biz.core.constant.LogConstant;
 import com.doucome.stockop.biz.core.ks.enums.ErrorEnums;
 import com.doucome.stockop.biz.core.ks.exception.KsException;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.response.KsLoginResponse;
 
 public class DefaultKsClientFactory implements KsClientFactory {
+	
+	private Log signinLog = LogFactory.getLog(LogConstant.signin_log) ;
 	
 	private String server ;
 	
@@ -34,9 +40,12 @@ public class DefaultKsClientFactory implements KsClientFactory {
 			} 
 			
 			KsClient client = new DefaultKsClient(server ,serverPort) ; //链接服务器
-			KsLoginResponse response = client.execute(loginRequest) ; //执行登陆操作
+			KsLoginResponse response = client.login(loginRequest) ; //执行登陆操作
 			if(response.isSuccess()) {
 				clientMap.put(accountId, client) ;
+				if(signinLog.isInfoEnabled()) {
+					signinLog.info("signin success account[" + accountId + "] " + response) ;
+				}
 				return client ;
 			} else {
 				throw new KsException(ErrorEnums.REMOTE_INVOKE_ERROR, response.getSubCode() ,  response.getMsg()) ;
