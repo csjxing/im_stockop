@@ -164,7 +164,7 @@
 					<plugin>
 						<groupId>com.doucome.maven.plugins</groupId>
 						<artifactId>maven-autoconf-plugin</artifactId>
-						<version>0.4.24</version>
+						<version>0.4.25</version>
 						<executions>
 							<execution>
 								<phase>pre-integration-test</phase>
