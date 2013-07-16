@@ -1,6 +1,8 @@
 package com.doucome.stockop.biz.core.ks.request;
 
+import com.doucome.stockop.biz.core.ks.constant.SeqGenrator;
 import com.doucome.stockop.biz.core.ks.response.KsCancellationResponse;
+import com.doucome.stockop.biz.core.utils.NetworkUtils;
 
 /**
  * 撤单
@@ -10,7 +12,9 @@ import com.doucome.stockop.biz.core.ks.response.KsCancellationResponse;
 public class KsCancellationRequest extends KsRequest<KsCancellationResponse> {
 
 	public KsCancellationRequest() {
-		
+		this.function = 4 ;
+		this.ip = NetworkUtils.getCachedLocalIP();
+		this.seq = SeqGenrator.nextSeq() ;
 	}
 	/**
 	 * 市场代码

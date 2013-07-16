@@ -1,13 +1,15 @@
 package com.doucome.stockop.biz.core.ks;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.doucome.stockop.biz.common.unittest.AbstractBaseJUnit4Test;
-import com.doucome.stockop.biz.core.ks.request.KsBatchCancellationRequest;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
-import com.doucome.stockop.biz.core.ks.response.KsBatchCancellationResponse;
+import com.doucome.stockop.biz.core.ks.request.KsQueryCommissionsRequest;
+import com.doucome.stockop.biz.core.ks.response.KsQueryCommissionsResponse;
 
 /**
  * 查询可用余额
@@ -63,15 +65,25 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 		
 		
 		//撤单
-		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
-		cancelRequest.setMarketCode("1") ;
-		cancelRequest.setCustomerCode("1880710027") ;
-		cancelRequest.setCommissionBatch(5204) ;
-		cancelRequest.setCommissionWay("WSWT") ;
-		cancelRequest.setSourceExchangeCode(27) ;
-		//调用
-		KsBatchCancellationResponse cancelResponse = client.execute(cancelRequest) ;
-		System.out.println(cancelResponse);
+//		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
+//		cancelRequest.setMarketCode("1") ;
+//		cancelRequest.setCustomerCode("1880710027") ;
+//		cancelRequest.setCommissionBatch(5204) ;
+//		cancelRequest.setCommissionWay("WSWT") ;
+//		cancelRequest.setSourceExchangeCode(27) ;
+//		//调用
+//		KsBatchCancellationResponse cancelResponse = client.execute(cancelRequest) ;
+//		System.out.println(cancelResponse);
+		
+		//查询挂单
+		KsQueryCommissionsRequest queryCommissionRequest = new KsQueryCommissionsRequest() ;
+		queryCommissionRequest.setCommissionPrice(new BigDecimal(34)) ;
+		queryCommissionRequest.setMarketCode("1") ;
+		queryCommissionRequest.setCustomerCode("1880710027") ;
+		queryCommissionRequest.setStockCode("601318") ;
+		queryCommissionRequest.setCommissionWay("WSWT") ;
+		KsQueryCommissionsResponse queryCommissionResponse = client.execute(queryCommissionRequest) ;
+		System.out.println(queryCommissionResponse);
 	}
 	
 	
