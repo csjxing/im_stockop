@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.doucome.stockop.biz.core.ks.constant.SeqGenrator;
 import com.doucome.stockop.biz.core.ks.enums.TrasactionTypeEnums;
 import com.doucome.stockop.biz.core.ks.response.KsCommissionResponse;
+import com.doucome.stockop.biz.core.utils.NetworkUtils;
 
 /**
  * 委托（挂单）
@@ -15,6 +16,7 @@ public class KsCommissionRequest extends KsRequest<KsCommissionResponse>{
 
 	public KsCommissionRequest() {
 		this.function = 3 ;
+		this.ip = NetworkUtils.getCachedLocalIP();
 		this.seq = SeqGenrator.nextSeq() ;
 	}
 	

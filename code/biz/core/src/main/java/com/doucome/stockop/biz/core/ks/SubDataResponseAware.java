@@ -10,7 +10,7 @@ import com.doucome.stockop.biz.core.ks.response.KsSubDataResponse;
  *
  * @param <T>
  */
-public interface SubDataAware<T extends KsSubDataResponse> {
+public interface SubDataResponseAware<T extends KsSubDataResponse> {
 
 	/**
 	 * 子数据包数

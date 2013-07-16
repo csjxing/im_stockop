@@ -1,14 +1,24 @@
 package com.doucome.stockop.biz.core.ks.request;
 
+import com.doucome.stockop.biz.core.ks.SubDataRequestAware;
+import com.doucome.stockop.biz.core.ks.constant.SeqGenrator;
 import com.doucome.stockop.biz.core.ks.response.KsQueryMarketStockResponse;
+import com.doucome.stockop.biz.core.utils.NetworkUtils;
 
 /**
  * 查询券商可融券余额 (56号包)
  * @author langben 2013-7-10
  *
  */
-public class KsQueryMarketStockRequest extends KsRequest<KsQueryMarketStockResponse> {
+public class KsQueryMarketStockRequest extends KsRequest<KsQueryMarketStockResponse> implements SubDataRequestAware {
 
+	public KsQueryMarketStockRequest(){
+		this.function = 56 ;
+		this.seq = SeqGenrator.nextSeq() ;
+		this.ip = NetworkUtils.getCachedLocalIP();
+		this.operate = "1" ;
+	}
+	
 	/**
 	 * 市场代码
 	 * <ul style="color:red;"><li>必须</li></ul>
@@ -185,6 +195,7 @@ public class KsQueryMarketStockRequest extends KsRequest<KsQueryMarketStockRespo
 		this.operate = operate;
 	}
 
+	@Override
 	public String getCommissionWay() {
 		return commissionWay;
 	}

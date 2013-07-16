@@ -15,7 +15,7 @@ public class KsLoginRequest extends KsRequest<KsLoginResponse> {
 	public KsLoginRequest(){
 		this.function = 61 ;
 		this.seq = SeqGenrator.nextSeq() ;
-		this.ip = NetworkUtils.getLocalIP();
+		this.ip = NetworkUtils.getCachedLocalIP();
 		this.accountType = AccountTypeEnums.CUSTOMER.getValue();
 	}
 	

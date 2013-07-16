@@ -9,6 +9,9 @@ import com.doucome.stockop.biz.core.ks.response.KsCancellationResponse;
  */
 public class KsCancellationRequest extends KsRequest<KsCancellationResponse> {
 
+	public KsCancellationRequest() {
+		
+	}
 	/**
 	 * 市场代码
 	 * <ul style="color:red;"><li>必须</li></ul>

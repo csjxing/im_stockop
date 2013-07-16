@@ -24,8 +24,8 @@ public class ResponseParser<T extends KsResponse> extends AbstractKsParser<T>{
 	
 	@Override
 	public T parse(String rsp) throws KsException {
-		String[] splits = StringUtils.split(rsp , KsConstant.PROTOCOL_SPLIT) ;
-		if(ArrayUtils.isEmpty(splits) || splits.length < 6) {
+		String[] splits = StringUtils.splitPreserveAllTokens(rsp , KsConstant.PROTOCOL_SPLIT) ;
+		if(ArrayUtils.isEmpty(splits) || splits.length < 4) {
 			throw new KsException(ErrorEnums.RESPONSE_FORMAT_ERROR , "resp[" + rsp + "] format error !") ;
 		}
 		String flag = splits[0] ;
