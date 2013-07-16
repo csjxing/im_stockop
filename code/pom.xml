@@ -30,7 +30,7 @@
 		<downloadSources>true</downloadSources>
 		<java_source_version>1.6</java_source_version>
 		<java_target_version>1.6</java_target_version>
-
+		<maven.autoconf.plugin.version>0.4.27</maven.autoconf.plugin.version>
 
 	</properties>
 
