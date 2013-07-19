@@ -7,8 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.doucome.stockop.biz.common.unittest.AbstractBaseJUnit4Test;
+import com.doucome.stockop.biz.core.ks.enums.TrasactionTypeEnums;
+import com.doucome.stockop.biz.core.ks.request.KsBatchCancellationRequest;
+import com.doucome.stockop.biz.core.ks.request.KsCommissionRequest;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.request.KsQueryCommissionsRequest;
+import com.doucome.stockop.biz.core.ks.response.KsBatchCancellationResponse;
+import com.doucome.stockop.biz.core.ks.response.KsCommissionResponse;
 import com.doucome.stockop.biz.core.ks.response.KsQueryCommissionsResponse;
 
 /**
@@ -49,39 +54,42 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 		
 		
 		//挂单（委托）
-//		KsCommissionRequest commissionRequest = new KsCommissionRequest() ;
-//		commissionRequest.setMarketCode("1") ;
-//		commissionRequest.setStockCode("601318") ;
-//		commissionRequest.setStockholder("E000041111") ;
-//		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_BUY.getValue()) ;
-//		commissionRequest.setAmount(100) ;
-//		commissionRequest.setPrice(new BigDecimal("37")) ;
-//		commissionRequest.setCommissionWay("WSWT") ;
-//		//调用
-//		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
-//		System.out.println(commissionResp);
+		KsCommissionRequest commissionRequest = new KsCommissionRequest() ;
+		commissionRequest.setMarketCode("1") ;
+		commissionRequest.setStockCode("601318") ;
+		commissionRequest.setStockholder("E000041111") ;
+		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_BUY.getValue()) ;
+		commissionRequest.setAmount(100) ;
+		commissionRequest.setPrice(new BigDecimal("40")) ;
+		commissionRequest.setCommissionWay("WSWT") ;
+		//调用
+		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
+		System.out.println(commissionResp);
 //		
 //		Integer commissionBatch = commissionResp.getCommissionBatch() ;
-		
+//		
 		
 		//撤单
-//		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
-//		cancelRequest.setMarketCode("1") ;
-//		cancelRequest.setCustomerCode("1880710027") ;
-//		cancelRequest.setCommissionBatch(5204) ;
-//		cancelRequest.setCommissionWay("WSWT") ;
-//		cancelRequest.setSourceExchangeCode(27) ;
-//		//调用
-//		KsBatchCancellationResponse cancelResponse = client.execute(cancelRequest) ;
-//		System.out.println(cancelResponse);
+		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
+		cancelRequest.setMarketCode("1") ;
+		cancelRequest.setCustomerCode("1880710027") ;
+		cancelRequest.setCommissionBatch(5210) ;
+		cancelRequest.setCommissionWay("WSWT") ;
+		cancelRequest.setSourceExchangeCode(27) ;
+		//调用
+		KsBatchCancellationResponse cancelResponse = client.execute(cancelRequest) ;
+		System.out.println(cancelResponse);
 		
 		//查询挂单
 		KsQueryCommissionsRequest queryCommissionRequest = new KsQueryCommissionsRequest() ;
-		queryCommissionRequest.setCommissionPrice(new BigDecimal(34)) ;
+		//queryCommissionRequest.setCommissionPrice(new BigDecimal(34)) ;
 		queryCommissionRequest.setMarketCode("1") ;
 		queryCommissionRequest.setCustomerCode("1880710027") ;
 		queryCommissionRequest.setStockCode("601318") ;
 		queryCommissionRequest.setCommissionWay("WSWT") ;
+		queryCommissionRequest.setStartDate("20130717") ;
+		
+		
 		KsQueryCommissionsResponse queryCommissionResponse = client.execute(queryCommissionRequest) ;
 		System.out.println(queryCommissionResponse);
 	}

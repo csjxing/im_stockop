@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.doucome.stockop.biz.common.utils.NumberUtils;
 import com.doucome.stockop.biz.core.ks.SubDataResponseAware;
+import com.doucome.stockop.biz.core.ks.annotation.KsIgnore;
 
 
 /**
@@ -23,7 +24,8 @@ public class KsQueryMarketStockResponse extends KsResponse implements SubDataRes
 	/**
 	 * 子记录
 	 */
-	private List<SubData> subDataList = new ArrayList<SubData>() ;
+	@KsIgnore
+	private List<SubData> subDataList = new ArrayList<SubData>(0) ;
 
 	@Override
 	public int getSubDataCount() {

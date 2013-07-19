@@ -4,11 +4,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.doucome.stockop.biz.common.utils.NumberUtils;
 import com.doucome.stockop.biz.core.ks.SubDataResponseAware;
+import com.doucome.stockop.biz.core.ks.annotation.KsIgnore;
 import com.doucome.stockop.biz.core.ks.enums.DealStatusEnums;
 
+/**
+ * 
+ * @author langben 2013-7-17
+ *
+ */
 public class KsQueryCommissionsResponse extends KsResponse implements SubDataResponseAware<KsQueryCommissionsResponse.SubData> {
-
+	
 	/**
 	 * 记录个数
 	 */
@@ -17,12 +24,12 @@ public class KsQueryCommissionsResponse extends KsResponse implements SubDataRes
 	/**
 	 * 子记录
 	 */
-	private List<SubData> subDataList = new ArrayList<SubData>() ;
-
+	@KsIgnore
+	private List<SubData> subDataList = new ArrayList<SubData>(0) ;
 	
 	@Override
 	public int getSubDataCount() {
-		return recordCount ;
+		return NumberUtils.parseInt(recordCount) ;
 	}
 
 	@Override

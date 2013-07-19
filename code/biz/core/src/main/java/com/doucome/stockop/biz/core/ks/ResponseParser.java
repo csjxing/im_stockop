@@ -9,10 +9,12 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.util.ReflectionUtils;
 
 import com.doucome.stockop.biz.core.enums.YesOrNoEnums;
+import com.doucome.stockop.biz.core.ks.annotation.KsIgnore;
 import com.doucome.stockop.biz.core.ks.constant.KsConstant;
 import com.doucome.stockop.biz.core.ks.enums.ErrorEnums;
 import com.doucome.stockop.biz.core.ks.exception.KsException;
 import com.doucome.stockop.biz.core.ks.response.KsResponse;
+import com.doucome.stockop.biz.core.utils.ReflectionExUtils;
 
 public class ResponseParser<T extends KsResponse> extends AbstractKsParser<T>{
 
@@ -57,6 +59,12 @@ public class ResponseParser<T extends KsResponse> extends AbstractKsParser<T>{
 					if(f == null) {
 						continue ;
 					}
+					//是否有KsIgore标注
+					KsIgnore ignoreAnno = f.getAnnotation(KsIgnore.class) ;
+					if(ignoreAnno != null) {
+						continue ;
+					}
+					
 					if(i >= splits.length) {
 						break ;
 					}

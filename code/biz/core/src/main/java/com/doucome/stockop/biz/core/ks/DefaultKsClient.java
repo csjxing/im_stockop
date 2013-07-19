@@ -142,7 +142,7 @@ public class DefaultKsClient implements KsClient {
 				T object = subDataParser.parse(subResp) ;
 				List<T> subDataList = response.getSubData() ;
 				if(subDataList == null) {
-					throw new IllegalStateException("SubDataAware[" + response.getClass() + "] method [getSubData] cant be null !") ;
+					throw new IllegalStateException("SubDataAware[" + response.getClass() + "] method [getSubData] cant be return null !") ;
 				}
 				
 				subDataList.add(object) ;
