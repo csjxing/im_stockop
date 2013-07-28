@@ -15,5 +15,9 @@ public class TestAction extends InterBasicAction {
 		
 		return SUCCESS ;
 	}
+
+	public JsonModel<Boolean> getJson() {
+		return json;
+	}
 	
 }
