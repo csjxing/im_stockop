@@ -1,5 +1,6 @@
 package com.doucome.stockop.web.inter.authz.impl;
 
+import com.doucome.stockop.biz.core.ks.KsClient;
 import com.doucome.stockop.web.inter.authz.InterAuthz;
 import com.doucome.stockop.web.inter.context.AuthzContext;
 import com.doucome.stockop.web.inter.context.AuthzContextHolder;
@@ -17,6 +18,12 @@ public class DefaultAuthzImpl implements InterAuthz {
 		String authToken = authzContext.getAuthToken();
 		String accountId = authzContext.getAccountId() ;
 
+		return null;
+	}
+
+	@Override
+	public KsClient getClient() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

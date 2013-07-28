@@ -9,6 +9,6 @@ import com.doucome.stockop.web.inter.authz.InterAuthz;
 public class InterBasicAction extends BasicAction {
 
 	@Autowired
-	protected InterAuthz chaoAuthz ;
+	protected InterAuthz interAuthz ;
 	
 }
