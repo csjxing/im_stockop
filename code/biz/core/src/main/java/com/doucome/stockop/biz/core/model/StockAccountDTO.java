@@ -15,6 +15,8 @@ public class StockAccountDTO extends AbstractModel {
 		this.currenyCode = resp.getCurrencyCode() ;
 		this.actualMarketCode = resp.getActualMarketCode() ;
 		this.authToken = UUIDUtils.random20() ;
+		this.customerCode = resp.getCustomerCode() ;
+		
 	}
 
 	/**
