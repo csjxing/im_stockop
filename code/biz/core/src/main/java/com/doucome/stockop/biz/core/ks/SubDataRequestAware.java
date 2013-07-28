@@ -4,5 +4,5 @@ public interface SubDataRequestAware {
 
 	String getCommissionWay() ;
 	
-	Integer getSourceExchangeCode() ;
+	String getSourceExchangeCode() ;
 }

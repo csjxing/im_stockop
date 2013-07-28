@@ -40,14 +40,14 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 			KsLoginRequest loginRequest = new KsLoginRequest() ;
 			loginRequest.setAccount("1880710027") ;
 			loginRequest.setPassword("147258") ;
-			loginRequest.setSourceExchangeCode(27) ;
+			loginRequest.setSourceExchangeCode("027") ;
 			loginRequest.setCommissionWay("WSWT") ;
 			client = ksClientFactory.newClient(loginRequest) ;
 		} 
 		
 		KsQueryMarketStockRequest query = new KsQueryMarketStockRequest() ;
 		query.setMarketCode(MarketCodeEnums.SH_A.getValue()) ;//上海A股
-		query.setSourceExchangeCode(27) ;
+		query.setSourceExchangeCode("027") ;
 		query.setCustomerCode("1880710027") ;
 		query.setQueryMarketCode(MarketCodeEnums.SH_A.getValue()) ;
 		//query.setQueryStockCode("000001") ;
@@ -78,7 +78,7 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 		cancelRequest.setCustomerCode("1880710027") ;
 		cancelRequest.setCommissionBatch(5210) ;
 		cancelRequest.setCommissionWay("WSWT") ;
-		cancelRequest.setSourceExchangeCode(27) ;
+		cancelRequest.setSourceExchangeCode("027") ;
 		//调用
 		KsBatchCancellationResponse cancelResponse = client.execute(cancelRequest) ;
 		System.out.println(cancelResponse);

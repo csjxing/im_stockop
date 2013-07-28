@@ -26,7 +26,7 @@ public class KsLoginRequestTest extends AbstractBaseJUnit4Test {
 			KsLoginRequest loginRequest = new KsLoginRequest() ;
 			loginRequest.setAccount("1880710027") ;
 			loginRequest.setPassword("147258") ;
-			loginRequest.setSourceExchangeCode(27) ;
+			loginRequest.setSourceExchangeCode("027") ;
 			loginRequest.setCommissionWay("WSWT") ;
 			client = ksClientFactory.newClient(loginRequest) ;
 		} 

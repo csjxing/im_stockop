@@ -34,7 +34,7 @@ public abstract class KsRequest <T extends KsResponse> extends AbstractModel {
 	/**
 	 * 发起（源）营业部代码
 	 */
-	protected Integer sourceExchangeCode ;
+	protected String sourceExchangeCode ;
 	
 	/**
 	 * 检查输入参数
@@ -111,11 +111,11 @@ public abstract class KsRequest <T extends KsResponse> extends AbstractModel {
 		return function;
 	}
 
-	public Integer getSourceExchangeCode() {
+	public String getSourceExchangeCode() {
 		return sourceExchangeCode;
 	}
 
-	public void setSourceExchangeCode(Integer sourceExchangeCode) {
+	public void setSourceExchangeCode(String sourceExchangeCode) {
 		this.sourceExchangeCode = sourceExchangeCode;
 	}
 
