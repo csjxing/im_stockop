@@ -43,6 +43,11 @@ public class StockAccountDTO extends AbstractModel {
 	 * 客户号
 	 */
 	private String customerCode ;
+	
+	/**
+	 * 开户营业部代码
+	 */
+	private String depositExchangeCode ;
 
 	public String getAccountId() {
 		return accountId;
@@ -64,6 +69,14 @@ public class StockAccountDTO extends AbstractModel {
 
 	public void setAuthToken(String authToken) {
 		this.authToken = authToken;
+	}
+
+	public String getDepositExchangeCode() {
+		return depositExchangeCode;
+	}
+
+	public void setDepositExchangeCode(String depositExchangeCode) {
+		this.depositExchangeCode = depositExchangeCode;
 	}
 
 	public String getActualMarketCode() {
