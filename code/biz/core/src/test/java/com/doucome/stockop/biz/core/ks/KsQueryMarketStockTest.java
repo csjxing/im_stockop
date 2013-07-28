@@ -7,14 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.doucome.stockop.biz.common.unittest.AbstractBaseJUnit4Test;
+import com.doucome.stockop.biz.core.ks.enums.MarketCodeEnums;
 import com.doucome.stockop.biz.core.ks.enums.TrasactionTypeEnums;
 import com.doucome.stockop.biz.core.ks.request.KsBatchCancellationRequest;
 import com.doucome.stockop.biz.core.ks.request.KsCommissionRequest;
 import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.request.KsQueryCommissionsRequest;
+import com.doucome.stockop.biz.core.ks.request.KsQueryMarketStockRequest;
 import com.doucome.stockop.biz.core.ks.response.KsBatchCancellationResponse;
 import com.doucome.stockop.biz.core.ks.response.KsCommissionResponse;
 import com.doucome.stockop.biz.core.ks.response.KsQueryCommissionsResponse;
+import com.doucome.stockop.biz.core.ks.response.KsQueryMarketStockResponse;
 
 /**
  * 查询可用余额
@@ -42,15 +45,15 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 			client = ksClientFactory.newClient(loginRequest) ;
 		} 
 		
-//		KsQueryMarketStockRequest query = new KsQueryMarketStockRequest() ;
-//		query.setMarketCode(MarketCodeEnums.SH_A.getValue()) ;//上海A股
-//		query.setSourceExchangeCode(27) ;
-//		query.setCustomerCode("1880710027") ;
-//		query.setQueryMarketCode(MarketCodeEnums.SH_A.getValue()) ;
-//		//query.setQueryStockCode("000001") ;
-//		KsQueryMarketStockResponse resp = client.execute(query) ;
-//		System.out.println(resp);
-//		System.out.println("");
+		KsQueryMarketStockRequest query = new KsQueryMarketStockRequest() ;
+		query.setMarketCode(MarketCodeEnums.SH_A.getValue()) ;//上海A股
+		query.setSourceExchangeCode(27) ;
+		query.setCustomerCode("1880710027") ;
+		query.setQueryMarketCode(MarketCodeEnums.SH_A.getValue()) ;
+		//query.setQueryStockCode("000001") ;
+		KsQueryMarketStockResponse resp = client.execute(query) ;
+		System.out.println(resp);
+		System.out.println("");
 		
 		
 		//挂单（委托）

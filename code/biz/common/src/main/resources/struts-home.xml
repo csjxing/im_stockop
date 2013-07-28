@@ -7,7 +7,4 @@
 		
 	</package>
 	
-	<package name="home-remote" namespace="/home/remote/rest" extends="struts-json">
-		
-	</package>
 </struts>
