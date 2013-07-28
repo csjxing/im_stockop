@@ -14,7 +14,10 @@
 	
 	<package name="inter-rest" namespace="/inter/rest" extends="inter">
 		
-		
+		<action name="test" class="com.doucome.stockop.web.inter.action.ajax.TestAction">
+			<interceptor-ref name="interDefaultStack" />
+			<result name="success" type="json2"></result>
+		</action>
 		
 	</package>
 	
