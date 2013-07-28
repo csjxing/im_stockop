@@ -12,7 +12,7 @@ public class StockAccountDTO extends AbstractModel {
 	
 	public StockAccountDTO(KsLoginResponse resp) {
 		this.accountId = resp.getAccount() ;
-		this.currentCode = resp.getCurrencyCode() ;
+		this.currenyCode = resp.getCurrencyCode() ;
 		this.actualMarketCode = resp.getActualMarketCode() ;
 		this.authToken = UUIDUtils.random20() ;
 	}
@@ -25,7 +25,7 @@ public class StockAccountDTO extends AbstractModel {
 	/**
 	 * 货币代码
 	 */
-	private String currentCode ;
+	private String currenyCode ;
 	
 	/**
 	 * 原输入帐号的实际市场代码
@@ -36,6 +36,11 @@ public class StockAccountDTO extends AbstractModel {
 	 * 用于验证的token
 	 */
 	private String authToken ;
+	
+	/**
+	 * 客户号
+	 */
+	private String customerCode ;
 
 	public String getAccountId() {
 		return accountId;
@@ -45,12 +50,18 @@ public class StockAccountDTO extends AbstractModel {
 		this.accountId = accountId;
 	}
 
-	public String getCurrentCode() {
-		return currentCode;
+	
+
+	public String getCurrenyCode() {
+		return currenyCode;
 	}
 
-	public void setCurrentCode(String currentCode) {
-		this.currentCode = currentCode;
+	public void setCurrenyCode(String currenyCode) {
+		this.currenyCode = currenyCode;
+	}
+
+	public void setAuthToken(String authToken) {
+		this.authToken = authToken;
 	}
 
 	public String getActualMarketCode() {
@@ -63,6 +74,14 @@ public class StockAccountDTO extends AbstractModel {
 
 	public String getAuthToken() {
 		return authToken;
+	}
+
+	public String getCustomerCode() {
+		return customerCode;
+	}
+
+	public void setCustomerCode(String customerCode) {
+		this.customerCode = customerCode;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.doucome.stockop.web.inter.authz.impl;
 
 import com.doucome.stockop.biz.core.ks.KsClient;
+import com.doucome.stockop.biz.core.model.StockAccountDTO;
 import com.doucome.stockop.web.inter.authz.InterAuthz;
 import com.doucome.stockop.web.inter.context.AuthzContext;
 import com.doucome.stockop.web.inter.context.AuthzContextHolder;
@@ -23,6 +24,12 @@ public class DefaultAuthzImpl implements InterAuthz {
 
 	@Override
 	public KsClient getClient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StockAccountDTO getAccount() {
 		// TODO Auto-generated method stub
 		return null;
 	}
