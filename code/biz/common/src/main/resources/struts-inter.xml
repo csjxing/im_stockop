@@ -22,6 +22,14 @@
 			<interceptor-ref name="interDefaultStack" />
 			<result name="success" type="json2"></result>
 		</action>
+		<action name="cancallation" class="com.doucome.stockop.web.inter.action.ajax.CancallationAction">
+			<interceptor-ref name="interDefaultStack" />
+			<result name="success" type="json2"></result>
+		</action>
+		<action name="queryOrder" class="com.doucome.stockop.web.inter.action.ajax.QueryOrderAction">
+			<interceptor-ref name="interDefaultStack" />
+			<result name="success" type="json2"></result>
+		</action>
 		
 	</package>
 	
