@@ -28,6 +28,27 @@ public class CommissionAction extends InterBasicAction {
 
 	private BigDecimal price;
 
+	/**
+	 * @param stockCode the stockCode to set
+	 */
+	public void setStockCode(String stockCode) {
+		this.stockCode = stockCode;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		
