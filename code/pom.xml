@@ -16,6 +16,7 @@
 		<module>./web/inter</module>
 		<module>./bundle/war</module>
 		<module>./deploy</module>
+		<module>./templates</module>
 	</modules>
 
 	<properties>

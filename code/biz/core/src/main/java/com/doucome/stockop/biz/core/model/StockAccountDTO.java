@@ -1,6 +1,8 @@
 package com.doucome.stockop.biz.core.model;
 
+import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.response.KsLoginResponse;
+import com.doucome.stockop.biz.core.utils.MD5Utils;
 import com.doucome.stockop.biz.core.utils.UUIDUtils;
 
 /**
@@ -10,13 +12,13 @@ import com.doucome.stockop.biz.core.utils.UUIDUtils;
  */
 public class StockAccountDTO extends AbstractModel {
 	
-	public StockAccountDTO(KsLoginResponse resp) {
+	public StockAccountDTO(KsLoginRequest req ,KsLoginResponse resp) {
 		this.accountId = resp.getAccount() ;
 		this.currenyCode = resp.getCurrencyCode() ;
 		this.actualMarketCode = resp.getActualMarketCode() ;
 		this.authToken = UUIDUtils.random20() ;
 		this.customerCode = resp.getCustomerCode() ;
-		
+		this.md5Password = MD5Utils.md5(req.getPassword()) ;
 	}
 
 	/**
@@ -48,6 +50,11 @@ public class StockAccountDTO extends AbstractModel {
 	 * 开户营业部代码
 	 */
 	private String depositExchangeCode ;
+	
+	/**
+	 * MD5 password
+	 */
+	private String md5Password ;
 
 	public String getAccountId() {
 		return accountId;
@@ -97,6 +104,14 @@ public class StockAccountDTO extends AbstractModel {
 
 	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;
+	}
+
+	public String getMd5Password() {
+		return md5Password;
+	}
+
+	public void setMd5Password(String md5Password) {
+		this.md5Password = md5Password;
 	}
 	
 }

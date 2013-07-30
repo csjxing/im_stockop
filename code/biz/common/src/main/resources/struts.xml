@@ -60,6 +60,7 @@
 			<result name="exception" type="velocity">/zhe/zhe.error/404.vm</result>
 			<result name="adminLogin" type="redirect">/bops/login.htm?Done=${Done}</result>
 			<result name="bopsError" type="velocity">/bops/error.vm</result>
+			<result name="interLogin" type="redirect">/inter/rest/auth_fail.htm</result>
 		</global-results>
 
 		<global-exception-mappings>

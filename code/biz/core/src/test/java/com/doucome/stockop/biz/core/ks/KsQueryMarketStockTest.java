@@ -45,29 +45,29 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 			client = ksClientFactory.newClient(loginRequest) ;
 		} 
 		
-		KsQueryMarketStockRequest query = new KsQueryMarketStockRequest() ;
-		query.setMarketCode(MarketCodeEnums.SH_A.getValue()) ;//上海A股
-		query.setSourceExchangeCode("027") ;
-		query.setCustomerCode("1880710027") ;
-		query.setQueryMarketCode(MarketCodeEnums.SH_A.getValue()) ;
-		//query.setQueryStockCode("000001") ;
-		KsQueryMarketStockResponse resp = client.execute(query) ;
-		System.out.println(resp);
-		System.out.println("");
+//		KsQueryMarketStockRequest query = new KsQueryMarketStockRequest() ;
+//		query.setMarketCode(MarketCodeEnums.SH_A.getValue()) ;//上海A股
+//		query.setSourceExchangeCode("027") ;
+//		query.setCustomerCode("1880710027") ;
+//		query.setQueryMarketCode(MarketCodeEnums.SH_A.getValue()) ;
+//		//query.setQueryStockCode("000001") ;
+//		KsQueryMarketStockResponse resp = client.execute(query) ;
+//		System.out.println(resp);
+//		System.out.println("");
 		
 		
 		//挂单（委托）
-		KsCommissionRequest commissionRequest = new KsCommissionRequest() ;
-		commissionRequest.setMarketCode("1") ;
-		commissionRequest.setStockCode("601318") ;
-		commissionRequest.setStockholder("E000041111") ;
-		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_BUY.getValue()) ;
-		commissionRequest.setAmount(100) ;
-		commissionRequest.setPrice(new BigDecimal("40")) ;
-		commissionRequest.setCommissionWay("WSWT") ;
-		//调用
-		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
-		System.out.println(commissionResp);
+//		KsCommissionRequest commissionRequest = new KsCommissionRequest() ;
+//		commissionRequest.setMarketCode("1") ;
+//		commissionRequest.setStockCode("601318") ;
+//		commissionRequest.setStockholder("E000041111") ;
+//		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_SELL.getValue()) ;
+//		commissionRequest.setAmount(100) ;
+//		commissionRequest.setPrice(new BigDecimal("40")) ;
+//		commissionRequest.setCommissionWay("WSWT") ;
+//		//调用
+//		KsCommissionResponse commissionResp = client.execute(commissionRequest) ;
+//		System.out.println(commissionResp);
 //		
 //		Integer commissionBatch = commissionResp.getCommissionBatch() ;
 //		
@@ -76,7 +76,7 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
 		cancelRequest.setMarketCode("1") ;
 		cancelRequest.setCustomerCode("1880710027") ;
-		cancelRequest.setCommissionBatch(5210) ;
+		cancelRequest.setCommissionBatch(5216) ;
 		cancelRequest.setCommissionWay("WSWT") ;
 		cancelRequest.setSourceExchangeCode("027") ;
 		//调用
@@ -90,7 +90,8 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 		queryCommissionRequest.setCustomerCode("1880710027") ;
 		queryCommissionRequest.setStockCode("601318") ;
 		queryCommissionRequest.setCommissionWay("WSWT") ;
-		queryCommissionRequest.setStartDate("20130717") ;
+		queryCommissionRequest.setStartDate("20130730") ;
+		queryCommissionRequest.setSellOrBuy(TrasactionTypeEnums.SECURITIES_SELL.getValue()) ;
 		
 		
 		KsQueryCommissionsResponse queryCommissionResponse = client.execute(queryCommissionRequest) ;

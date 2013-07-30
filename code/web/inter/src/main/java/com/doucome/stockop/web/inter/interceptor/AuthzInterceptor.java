@@ -28,17 +28,17 @@ public class AuthzInterceptor extends AbstractInterceptor {
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		if (!interAuthz.isLogin()) {
-			HttpServletRequest request = ServletActionContext.getRequest() ;
-			String toUrl = request.getRequestURL().toString();
-			String requestQueryString = request.getQueryString();
-			if (StringUtils.isNotBlank(requestQueryString)) {
-				toUrl += "?" + requestQueryString;
-			}
-			toUrl = URLEncoder.encode(toUrl, Constant.CHARSET_UTF8);
-			
-			invocation.getStack().set("redirectURL", toUrl) ;
-			
-            return BasicAction.STOCKOP_LOGIN ;
+//			HttpServletRequest request = ServletActionContext.getRequest() ;
+//			String toUrl = request.getRequestURL().toString();
+//			String requestQueryString = request.getQueryString();
+//			if (StringUtils.isNotBlank(requestQueryString)) {
+//				toUrl += "?" + requestQueryString;
+//			}
+//			toUrl = URLEncoder.encode(toUrl, Constant.CHARSET_UTF8);
+//			
+//			invocation.getStack().set("redirectURL", toUrl) ;
+//			
+            return BasicAction.INTER_LOGIN ;
         }
 		return invocation.invoke();
 	}

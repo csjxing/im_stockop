@@ -9,17 +9,32 @@
 				 <interceptor-ref name="doucomeDefaultStack" />
 				 <interceptor-ref name="setInterContextInterceptor" />
 			 </interceptor-stack>
+			 <interceptor-stack name="interAuthStack">
+				 <interceptor-ref name="doucomeDefaultStack" />
+				 <interceptor-ref name="setInterContextInterceptor" />
+				 <interceptor-ref name="interAuthzContextInterceptor" />
+			 </interceptor-stack>
 		</interceptors>
 	</package>
 	
 	<package name="inter-rest" namespace="/inter/rest" extends="inter">
+		<action name="auth_fail" class="com.doucome.stockop.web.inter.action.ajax.AuthFailAction">
+			<interceptor-ref name="interDefaultStack" />
+			<result name="success" type="json2"></result>
+		</action>
+		
+		<action name="login" class="com.doucome.stockop.web.inter.action.ajax.LoginAction">
+			<interceptor-ref name="interDefaultStack" />
+			<result name="success" type="json2"></result>
+		</action>
 		
 		<action name="test" class="com.doucome.stockop.web.inter.action.ajax.TestAction">
 			<interceptor-ref name="interDefaultStack" />
 			<result name="success" type="json2"></result>
 		</action>
+		
 		<action name="commission" class="com.doucome.stockop.web.inter.action.ajax.CommissionAction">
-			<interceptor-ref name="interDefaultStack" />
+			<interceptor-ref name="interAuthStack" />
 			<result name="success" type="json2"></result>
 		</action>
 		

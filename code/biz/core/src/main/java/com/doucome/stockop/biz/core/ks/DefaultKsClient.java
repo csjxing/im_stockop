@@ -62,17 +62,17 @@ public class DefaultKsClient implements KsClient {
 	@Override
 	public KsLoginResponse login(KsLoginRequest request) throws KsException {
 		if(isLogin){
-			throw new KsException(ErrorEnums.ALREADY_LOGIN , "account[" + request.getAccount() + "] is aready login") ;
+			throw new KsException(ErrorEnums.DUPLICATE_LOGIN , "account[" + request.getAccount() + "] is aready login") ;
 		}
 		KsLoginResponse response = _execute(request , false) ;
-		account = new StockAccountDTO(response) ;
+		account = new StockAccountDTO(request , response) ;
 		isLogin = true ;
 		return response;
 	}
 	
 	private <T extends KsResponse> T _execute(KsRequest<T> request , boolean needLogin) throws KsException {
 		if(needLogin && !isLogin) {
-			throw new KsException(ErrorEnums.NOT_LOGIN , "request[" + request + "] not login") ;
+			throw new KsException(ErrorEnums.NEED_LOGIN , "request[" + request + "] not login") ;
 		}
 		lock.lock() ;
 		try {

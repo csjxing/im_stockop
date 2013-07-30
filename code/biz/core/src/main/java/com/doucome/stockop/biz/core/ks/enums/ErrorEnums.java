@@ -18,16 +18,6 @@ public enum ErrorEnums {
 	INTERNAL_ERROR(3001) ,
 	
 	/**
-	 * 重复登录
-	 */
-	ALREADY_LOGIN(3002) ,
-	
-	/**
-	 * 未登录
-	 */
-	NOT_LOGIN(3003) ,
-	
-	/**
 	 * 调用远程业务错误
 	 */
 	REMOTE_INVOKE_ERROR(4001) ,
@@ -38,9 +28,20 @@ public enum ErrorEnums {
 	RESPONSE_FORMAT_ERROR(4002) ,
 	
 	/**
-	 * 
+	 * 用户名或密码错
 	 */
 	ACC_OR_PSD_ERROR(5001) ,
+	
+	/**
+	 * 重复登录
+	 */
+	DUPLICATE_LOGIN(5002) ,
+	
+	/**
+	 * 未登陆
+	 */
+	NEED_LOGIN(5003) ,
+	
 	;
 	
 	private ErrorEnums(int code) {

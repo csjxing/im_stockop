@@ -1,6 +1,6 @@
 package com.doucome.stockop.biz.core.utils;
 
-public class MD5Util {
+public class MD5Utils {
 
     private static final String prefixKey = "D0UCOME";
 
@@ -57,7 +57,7 @@ public class MD5Util {
     /**
      * 
      */
-    public MD5Util(){
+    public MD5Utils(){
         md5Init();
         return;
     }
@@ -339,9 +339,9 @@ public class MD5Util {
     }
 
     // 获取md5 值
-    public static String getMD5(String value) {
+    public static String md5(String value) {
         String source = prefixKey+value;
-        MD5Util md5 = new MD5Util();
+        MD5Utils md5 = new MD5Utils();
         String md5String = md5.getMD5ofString(source.getBytes(), source.getBytes().length);
         return md5String;
     }

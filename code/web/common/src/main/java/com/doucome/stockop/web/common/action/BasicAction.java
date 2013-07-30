@@ -24,6 +24,8 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class BasicAction extends ActionSupport {
     
     public static final String STOCKOP_LOGIN = "stockopLogin" ;
+    
+    public static final String INTER_LOGIN = "interLogin" ;
 
     protected HttpServletRequest getRequest() {
         return ServletActionContext.getRequest();

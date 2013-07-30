@@ -2,6 +2,9 @@ package com.doucome.stockop.web.inter.action.ajax;
 
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.doucome.stockop.biz.core.ks.constant.KsConstant;
 import com.doucome.stockop.biz.core.ks.enums.TrasactionTypeEnums;
 import com.doucome.stockop.biz.core.ks.request.KsCommissionRequest;
 import com.doucome.stockop.biz.core.ks.response.KsCommissionResponse;
@@ -27,19 +30,42 @@ public class CommissionAction extends InterBasicAction {
 
 	@Override
 	public String execute() throws Exception {
+		
+		if(StringUtils.isBlank(stockCode)) {
+			json.setCode(JsonModel.CODE_ILL_ARGS) ;
+			json.setDetail("stockop.commission.stockCode.required") ;
+			return SUCCESS ;
+		}
+		
+		if(amount == null) {
+			json.setCode(JsonModel.CODE_ILL_ARGS) ;
+			json.setDetail("stockop.commission.amount.required") ;
+			return SUCCESS ;
+		}
+		
+		if(amount <= 0) {
+			json.setCode(JsonModel.CODE_ILL_ARGS) ;
+			json.setDetail("stockop.commission.amount.error") ;
+			return SUCCESS ;
+		}
+		
+		if(price == null) {
+			json.setCode(JsonModel.CODE_ILL_ARGS) ;
+			json.setDetail("stockop.commission.price.required") ;
+			return SUCCESS ;
+		}
 
 		KsCommissionRequest commissionRequest = new KsCommissionRequest();
 		commissionRequest.setMarketCode("1");
 		commissionRequest.setStockCode(stockCode);
 		commissionRequest.setStockholder("E000041111");
-		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_BUY
+		commissionRequest.setTrasacationType(TrasactionTypeEnums.SECURITIES_SELL
 				.getValue());
 		commissionRequest.setAmount(amount);
 		commissionRequest.setPrice(price);
-		commissionRequest.setCommissionWay("WSWT");
+		commissionRequest.setCommissionWay(KsConstant.COMMISSION_WAY);
 		KsCommissionResponse commissionResp = interAuthz.getClient().execute(
 				commissionRequest);
-		System.out.println(commissionResp);
 		if (commissionResp.isSuccess()) {
 			json.setData(commissionResp);
 			json.setCode(JsonModel.CODE_SUCCESS);
@@ -52,6 +78,18 @@ public class CommissionAction extends InterBasicAction {
 
 	public JsonModel<KsCommissionResponse> getJson() {
 		return json;
+	}
+
+	public void setStockCode(String stockCode) {
+		this.stockCode = stockCode;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
 }

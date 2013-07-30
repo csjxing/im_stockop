@@ -15,4 +15,6 @@ public class KsConstant {
 	public static final String RESPONSE_FLAG = "A" ;
 	
 	public static final String REQUEST_FLAG = "R" ;
+	
+	public static String COMMISSION_WAY = "WSWT" ;
 }

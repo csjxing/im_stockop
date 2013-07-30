@@ -22,3 +22,7 @@
 /code/bundle/war/.project
 /code/bundle/war/.settings
 /code/bundle/war/target
+/code/templates/.classpath
+/code/templates/.project
+/code/templates/.settings
+/code/templates/target

@@ -11,14 +11,15 @@ public class JsonModel<T> {
 	public static final String CODE_SUCCESS = "success";
 	public static final String CODE_FAIL = "fail";
 	public static final String CODE_ILL_ARGS = "ill_args";	
+	public static final String CODE_AUTH_FAIL = "auth_fail" ;
 	
 	private String code;
 	
 	private String detail ;
+	
+	private Integer errorCode ;
 
 	private T data;
-	
-	private String extraData ;
 	
 	public boolean isSuccess(){
 		return StringUtils.equals(code,CODE_SUCCESS) ; 
@@ -58,11 +59,12 @@ public class JsonModel<T> {
 		setDetail(detail) ;
 	}
 
-	public String getExtraData() {
-		return extraData;
+	public Integer getErrorCode() {
+		return errorCode;
 	}
 
-	public void setExtraData(String extraData) {
-		this.extraData = extraData;
+	public void setErrorCode(Integer errorCode) {
+		this.errorCode = errorCode;
 	}
+
 }
