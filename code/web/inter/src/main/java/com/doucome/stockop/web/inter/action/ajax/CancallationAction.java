@@ -1,5 +1,6 @@
 package com.doucome.stockop.web.inter.action.ajax;
 
+import com.doucome.stockop.biz.common.utils.IDUtils;
 import com.doucome.stockop.biz.core.ks.request.KsBatchCancellationRequest;
 import com.doucome.stockop.biz.core.ks.response.KsBatchCancellationResponse;
 import com.doucome.stockop.web.common.model.JsonModel;
@@ -27,6 +28,11 @@ public class CancallationAction extends InterBasicAction {
 	@Override
 	public String execute() throws Exception {
 
+		if(IDUtils.isNotCorrect(batchNumber)) {
+			json.setCode(JsonModel.CODE_ILL_ARGS) ;
+			json.setDetail("stockop.cancallation.batchNumber.required") ;
+			return SUCCESS ;
+		}
 		
 		KsBatchCancellationRequest cancelRequest = new KsBatchCancellationRequest() ;
 		cancelRequest.setMarketCode("1") ;

@@ -101,16 +101,4 @@ public class CommissionAction extends InterBasicAction {
 		return json;
 	}
 
-	public void setStockCode(String stockCode) {
-		this.stockCode = stockCode;
-	}
-
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
 }
