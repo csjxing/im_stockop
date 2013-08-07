@@ -28,10 +28,6 @@ public class CollectionUtilsToolbox extends CollectionUtils {
 		return list ;
 	}
 	
-	public static boolean isEmpty(Collection<?> collection) {
-		return (collection == null || collection.isEmpty());
-	}
-	
 	public static List<Object> wrapperToList(Object o) {
 		List<Object> list = new ArrayList<Object>() ;
 		list.add(o) ;
