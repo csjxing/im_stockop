@@ -8,7 +8,7 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 
 import com.doucome.stockop.biz.core.ks.constant.KsConstant;
-import com.doucome.stockop.biz.core.model.AbstractModel;
+import com.doucome.stockop.biz.dal.model.AbstractModel;
 
 public abstract class KsResponse extends AbstractModel {
 

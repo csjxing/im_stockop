@@ -27,7 +27,7 @@
 	        <property name="removeAbandonedTimeout"><value>180</value></property>
 		    <property name="timeBetweenEvictionRunsMillis"><value>60000</value></property>
 		    <property name="minEvictableIdleTimeMillis"><value>1800000</value></property>
-		    <property name="connectionProperties"><value>bigStringTryClob=true;clientEncoding=GBK;defaultRowPrefetch=50;serverEncoding=GBK</value></property>
+		    <property name="connectionProperties"><value>bigStringTryClob=true;clientEncoding=UTF-8;defaultRowPrefetch=50;serverEncoding=UTF-8</value></property>
 		</bean>
 
 		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

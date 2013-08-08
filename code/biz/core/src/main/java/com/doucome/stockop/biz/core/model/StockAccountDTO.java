@@ -4,6 +4,7 @@ import com.doucome.stockop.biz.core.ks.request.KsLoginRequest;
 import com.doucome.stockop.biz.core.ks.response.KsLoginResponse;
 import com.doucome.stockop.biz.core.utils.MD5Utils;
 import com.doucome.stockop.biz.core.utils.UUIDUtils;
+import com.doucome.stockop.biz.dal.model.AbstractModel;
 
 /**
  * 账户

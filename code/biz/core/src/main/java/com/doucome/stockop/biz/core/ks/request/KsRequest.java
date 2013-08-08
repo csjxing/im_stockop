@@ -10,7 +10,7 @@ import org.springframework.util.ReflectionUtils;
 import com.doucome.stockop.biz.core.ks.constant.KsConstant;
 import com.doucome.stockop.biz.core.ks.exception.KsRuleException;
 import com.doucome.stockop.biz.core.ks.response.KsResponse;
-import com.doucome.stockop.biz.core.model.AbstractModel;
+import com.doucome.stockop.biz.dal.model.AbstractModel;
 
 public abstract class KsRequest <T extends KsResponse> extends AbstractModel {	
 	

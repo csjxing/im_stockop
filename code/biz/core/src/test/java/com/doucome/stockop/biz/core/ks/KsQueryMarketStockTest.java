@@ -34,7 +34,7 @@ public class KsQueryMarketStockTest extends AbstractBaseJUnit4Test {
 	public void test() {
 		
 		//建立一个长连接
-		KsClient client = ksClientFactory.findClient("1880270158") ;
+		KsClient client = ksClientFactory.findClient("1880710027") ;
 		if(client == null) {
 			//登陆（创建client）
 			KsLoginRequest loginRequest = new KsLoginRequest() ;

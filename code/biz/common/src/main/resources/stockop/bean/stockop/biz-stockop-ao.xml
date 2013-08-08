@@ -11,4 +11,7 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
 	default-autowire="byName">
 	
+	<bean id="commandLogAO" class="com.doucome.stockop.biz.core.ao.CommandLogAO"></bean>
+	
+	
 </beans>

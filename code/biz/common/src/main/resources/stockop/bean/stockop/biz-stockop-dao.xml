@@ -11,4 +11,6 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
 	default-autowire="byName">
 
+	<bean id="commandLogDAO" class="com.doucome.stockop.biz.dal.dao.ibatis.IBatisCommandLogDAO"/>
+	
 </beans>

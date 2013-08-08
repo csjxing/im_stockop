@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 
 import com.doucome.stockop.biz.core.ks.constant.KsConstant;
-import com.doucome.stockop.biz.core.model.AbstractModel;
+import com.doucome.stockop.biz.dal.model.AbstractModel;
 
 public abstract class KsSubDataResponse extends AbstractModel {
 

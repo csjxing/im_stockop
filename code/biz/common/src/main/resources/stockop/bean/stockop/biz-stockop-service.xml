@@ -17,4 +17,6 @@
 		<property name="serverPort" value="${stockop.ks.server.port}"/>
 	</bean>
 	
+	<bean id="commandLogService" class="com.doucome.stockop.biz.core.service.impl.CommandLogServiceImpl"></bean>
+	
 </beans>

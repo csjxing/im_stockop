@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="CommandLog">
+	<typeAlias alias="TA-CommandLog" type="com.doucome.stockop.biz.dal.dataobject.CommandLogDO" />
+
+	<resultMap id="RM-CommandLog" class="TA-CommandLog">
+		<result property="id" column="ID" />
+		<result property="accountId" column="ACCOUNT_ID" />
+		<result property="operator" column="OPERATOR" />
+		<result property="command" column="COMMAND" />
+		<result property="commiBatch" column="COMMI_BATCH" />
+		<result property="stockCode" column="STOCK_CODE" />
+		<result property="price" column="PRICE" />
+		<result property="amount" column="AMOUNT" />
+		<result property="memo" column="MEMO" />
+		<result property="logDetail" column="LOG_DETAIL" />
+		<result property="gmtCreate" column="GMT_CREATE" />
+		<result property="gmtModified" column="GMT_MODIFIED" />
+	</resultMap>
+	
+	<insert id="insertCommandLog">
+		INSERT INTO 
+			COMMAND_LOG(ID,ACCOUNT_ID,OPERATOR,COMMAND,COMMI_BATCH,STOCK_CODE,PRICE,AMOUNT,MEMO,LOG_DETAIL,GMT_CREATE,GMT_MODIFIED)
+		VALUES
+			(#id#,#accountId#,#operator#,#command#,#commiBatch#,#stockCode#,#price#,#amount#,#memo#,#logDetail#,now(),now())
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+    		<![CDATA[
+				SELECT LAST_INSERT_ID() AS ID
+			]]>
+		</selectKey>
+	</insert>
+
+	<select id="queryCommandLogsWithPagination" resultMap="RM-CommandLog">
+		SELECT
+			ID,ACCOUNT_ID,OPERATOR,COMMAND,COMMI_BATCH,STOCK_CODE,PRICE,AMOUNT,MEMO,LOG_DETAIL,GMT_CREATE,GMT_MODIFIED
+		FROM 
+			COMMAND_LOG
+		<isParameterPresent open="WHERE" removeFirstPrepend="true">
+			<isNotEmpty property="stockCode" prepend="AND">
+				<![CDATA[
+				STOCK_CODE = #stockCode#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="accountId" prepend="AND">
+				<![CDATA[
+				ACCOUNT_ID = #accountId#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="operator" prepend="AND">
+				<![CDATA[
+				OPERATOR = #operator#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="command" prepend="AND">
+				<![CDATA[
+				COMMAND = #command#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="commiBatch" prepend="AND">
+				<![CDATA[
+				COMMI_BATCH = #commiBatch#
+				]]>
+			</isNotEmpty>
+		</isParameterPresent>
+		LIMIT 
+			#start# , #size#
+		ORDER BY 
+			GMT_CREATE
+		DESC
+	</select>
+	
+	<select id="countCommandLogsWithPagination" resultClass="java.lang.Integer">
+		SELECT
+			COUNT(ID)
+		FROM 
+			COMMAND_LOG
+		<isParameterPresent open="WHERE" removeFirstPrepend="true">
+			<isNotEmpty property="stockCode" prepend="AND">
+				<![CDATA[
+				STOCK_CODE = #stockCode#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="accountId" prepend="AND">
+				<![CDATA[
+				ACCOUNT_ID = #accountId#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="operator" prepend="AND">
+				<![CDATA[
+				OPERATOR = #operator#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="command" prepend="AND">
+				<![CDATA[
+				COMMAND = #command#
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="commiBatch" prepend="AND">
+				<![CDATA[
+				COMMI_BATCH = #commiBatch#
+				]]>
+			</isNotEmpty>
+		</isParameterPresent>
+	</select>
+	
+</sqlMap>
