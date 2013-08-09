@@ -20,7 +20,7 @@
 	
 	<import resource="classpath:stockop/bean/stockop/biz-stockop-dao.xml" /> 
 	<import resource="classpath:stockop/bean/stockop/biz-stockop-service.xml" />
-	<import resource="classpath:stockop/bean/stockop/biz-stockop-bo.xml" />
+	<import resource="classpath:stockop/bean/stockop/biz-stockop-ao.xml" />
 	
 	<!-- <import resource="classpath:stockop/bean/web/biz-web-service.xml" /> -->
 	
